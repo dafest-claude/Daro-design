@@ -1,0 +1,267 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="820" viewBox="0 0 1100 820">
+
+  <!-- Background -->
+  <rect width="1100" height="820" fill="#faf8f5"/>
+
+  <!-- Title -->
+  <text x="550" y="35" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#2c2c2c" text-anchor="middle">HABITAD — VISTA AXONOMÉTRICA 3D</text>
+  <text x="550" y="55" font-family="Georgia, serif" font-size="12" fill="#888888" text-anchor="middle">Perspectiva isométrica  |  Estilo: Nórdico / Wabi-sabi  |  55 m²</text>
+
+  <!--
+    Isometric projection:
+    X axis goes right-down at 30deg
+    Y axis goes left-down at 30deg
+    Z axis goes straight up
+
+    Base transform:
+    iso_x(x,y) = cx + (x - y) * cos30
+    iso_y(x,y) = cy + (x + y) * sin30 - z * height_scale
+
+    Using simplified isometric grid:
+    1m = 40px in iso space
+    cx = 550, cy = 480 (center base)
+
+    Apartment footprint:
+    - Total: 10.21m wide (x), ~6.5m deep (y)
+    - Upper zone (y=0..3): dormitorio(x=0..3.6), service(x=3.6..10.21)
+    - Lower zone (y=3..6.5): estar(x=0..7.3), cocina(x=7.3..10.21)
+    - Balcón (y=3..5.5, x=-1..0)
+    Wall height: 2.60m
+
+    Scale: 1m = 42px isometric units
+    cos(30) = 0.866, sin(30) = 0.5
+
+    Anchor: let's place bottom-left of apartment at screen position
+    iso projection:
+    For a point (rx, ry, rz) in room coords (meters):
+      sx = 200 + (rx - ry) * 42 * 0.866
+      sy = 500 - (rx + ry) * 42 * 0.5 + (6.5 - rz) * 42 (approx)
+
+    Let me use a simpler approach with pre-calculated points.
+
+    I'll draw a clean isometric view manually with key vertices.
+
+    Origin (0,0,0) = front-left-bottom = screen (200, 550)
+
+    Isometric rules:
+    - Move right in X: screen right+down: dx=+36, dy=+18 per meter
+    - Move back in Y: screen left+down: dx=-36, dy=+18 per meter
+    - Move up in Z: screen straight up: dx=0, dy=-42 per meter
+
+    Key dimensions:
+    - W = 10.21m (x direction) -> 10.21*36=368px right, 10.21*18=184px down
+    - D = 6.5m (y direction) -> 6.5*36=234px left, 6.5*18=117px down
+    - H = 2.6m wall height -> 2.6*42=109px up
+
+    Front-left corner (0,0,0): let's say screen (160, 580)
+
+    Key points:
+    A = (0,0,0) -> (160, 580)  [front-left-bottom]
+    B = (10.21,0,0) -> (160+368, 580+184) = (528, 764) [front-right-bottom]
+    C = (10.21,6.5,0) -> (528-234, 764+117) = (294, 881) -- too low
+
+    Let me adjust. Use scale: x:dx=30,dy=15 per meter; y:dx=-30,dy=15; z:dy=-40
+
+    Origin at (200, 600):
+    A(0,0,0) = (200, 600)
+    B(10.21,0,0) = (200+10.21*30, 600+10.21*15) = (506, 753)
+    D(0,6.5,0) = (200-6.5*30, 600+6.5*15) = (5, 698) -- off screen
+
+    Let me use smaller scale: x:dx=28,dy=14; y:dx=-22,dy=11; z:dy=-36
+    And start at (280, 560)
+
+    A(0,0,0)     = (280, 560)
+    B(10.21,0,0) = (280+10.21*28, 560+10.21*14) = (566, 703)
+    C(0,6.5,0)   = (280-6.5*22, 560+6.5*11) = (137, 632)
+    D(10.21,6.5,0) = (566-143, 703+72) = (423, 775)
+
+    Top points (z=2.6, dy=-36*2.6 = -94):
+    At(0,0,2.6)   = (280, 560-94) = (280, 466)
+    Bt(10.21,0,2.6) = (566, 703-94) = (566, 609)
+    Ct(0,6.5,2.6)  = (137, 632-94) = (137, 538)
+    Dt(10.21,6.5,2.6) = (423, 775-94) = (423, 681)
+
+    This looks manageable. Let me draw the apartment shell and key interior elements.
+  -->
+
+  <!-- === FLOOR SLAB === -->
+  <!-- Floor polygon: A, B, D, C (bottom face) -->
+  <polygon points="280,560 566,703 423,775 137,632" fill="#e8e4de" stroke="#2c2c2c" stroke-width="2"/>
+
+  <!-- Zone colors on floor -->
+  <!-- Dormitorio zone (x=0..3.6, y=0..3)
+       (0,0) -> (280,560)
+       (3.6,0) -> (280+3.6*28, 560+3.6*14) = (381,610)
+       (3.6,3) -> (381-3*22, 610+3*11) = (315,643)
+       (0,3) -> (280-3*22, 560+3*11) = (214,593) -->
+  <polygon points="280,560 381,610 315,643 214,593" fill="#dce8f0" stroke="#2c2c2c" stroke-width="1.5"/>
+
+  <!-- Service strip x=3.6..10.21, y=0..3 (baño+toilet)
+       (3.6,0) -> (381,610)
+       (10.21,0) -> (566,703)
+       (10.21,3) -> (566-66, 703+33) = (500,736)
+       (3.6,3) -> (315,643) -->
+  <polygon points="381,610 566,703 500,736 315,643" fill="#f0dce0" stroke="#2c2c2c" stroke-width="1.5"/>
+
+  <!-- Estar/comedor x=0..7.3, y=3..6.5
+       (0,3) -> (214,593)
+       (7.3,3) -> (214+7.3*28, 593+7.3*14) = (418,695)
+       (7.3,6.5) -> (418-3.5*22, 695+3.5*11) = (341,734)
+       (0,6.5) -> (137,632) -->
+  <polygon points="214,593 418,695 341,734 137,632" fill="#f0ead8" stroke="#2c2c2c" stroke-width="1.5"/>
+
+  <!-- Cocina x=7.3..10.21, y=3..6.5
+       (7.3,3) -> (418,695)
+       (10.21,3) -> (500,736)
+       (10.21,6.5) -> (423,775)
+       (7.3,6.5) -> (341,734) -->
+  <polygon points="418,695 500,736 423,775 341,734" fill="#e0ddd8" stroke="#2c2c2c" stroke-width="1.5"/>
+
+  <!-- Balcón x=-1..0, y=3..5.5
+       (-1,3) -> (280-28-3*22, 560-14+3*11) = (186,579)
+       (0,3) -> (214,593)
+       (0,5.5) -> (214-2.5*22, 593+2.5*11) = (159,621)
+       (-1,5.5) -> (159-28, 621-14) = (131,607) -->
+  <polygon points="186,579 214,593 159,621 131,607" fill="#d8e8d8" stroke="#2c2c2c" stroke-width="1.5"/>
+
+  <!-- === FRONT WALL (y=0, facing viewer) === -->
+  <!-- From A(280,560) to B(566,703), height up 94px -->
+  <!-- Front face: A, B, Bt, At -->
+  <polygon points="280,560 566,703 566,609 280,466" fill="#f5f0e8" stroke="#2c2c2c" stroke-width="2"/>
+  <!-- Window on front wall (dormitorio, x=1..2.5, z=0.8..2.2)
+       x=1: (280+28, 560+14) = (308,574), z=0.8 up: dy=-29 -> (308,545)
+       x=2.5: (280+70, 560+35) = (350,595), z=0.8: (350,566), z=2.2: (350,566-51)=(350,515)
+  -->
+  <polygon points="308,545 350,566 350,515 308,494" fill="#a8c8e0" stroke="#7a98a8" stroke-width="1.5" fill-opacity="0.7"/>
+  <!-- Window divider -->
+  <line x1="329" y1="494" x2="329" y2="545" stroke="#7a98a8" stroke-width="1"/>
+
+  <!-- === LEFT WALL (x=0, facing viewer) === -->
+  <!-- From A(280,560) to C(137,632), height up -->
+  <!-- At(280,466), Ct(137,538) -->
+  <polygon points="280,560 137,632 137,538 280,466" fill="#ede8e0" stroke="#2c2c2c" stroke-width="2"/>
+  <!-- Balcon door on left wall -->
+  <polygon points="214,593 214,499 195,505 195,599" fill="#b8d4c8" stroke="#2c2c2c" stroke-width="1.5" fill-opacity="0.8"/>
+
+  <!-- === ROOF (partial, show open) === -->
+  <!-- Show partial ceiling as transparent outline -->
+  <!-- Dormitorio ceiling -->
+  <polygon points="280,466 381,516 315,549 214,499" fill="#e8e4de" stroke="#2c2c2c" stroke-width="1" fill-opacity="0.3"/>
+  <!-- Estar ceiling (faint) -->
+  <polygon points="214,499 418,601 341,640 137,538" fill="#e8e4de" stroke="#2c2c2c" stroke-width="1" fill-opacity="0.2"/>
+
+  <!-- === INTERIOR WALL - between dorm and estar (y=3, x=0..3.6) === -->
+  <!-- base: (0,3,0)=(214,593) to (3.6,3,0)=(315,643) -->
+  <!-- top: (214,499) to (315,549) -->
+  <polygon points="214,593 315,643 315,549 214,499" fill="#d8d0c8" stroke="#2c2c2c" stroke-width="1.5"/>
+
+  <!-- Door opening in interior wall -->
+  <polygon points="248,620 278,636 278,566 248,550" fill="#f0ead8" stroke="#2c2c2c" stroke-width="1"/>
+
+  <!-- === INTERIOR WALL - service corridor (x=3.6, y=0..3) === -->
+  <!-- base: (3.6,0,0)=(381,610) to (3.6,3,0)=(315,643) -->
+  <polygon points="381,610 315,643 315,549 381,516" fill="#ccc8c0" stroke="#2c2c2c" stroke-width="1.5"/>
+
+  <!-- === RIGHT WALL - cocina (x=10.21, y=3..6.5) === -->
+  <polygon points="500,736 423,775 423,681 500,642" fill="#d8d4cc" stroke="#2c2c2c" stroke-width="1.5"/>
+  <!-- Entrance door -->
+  <polygon points="475,756 475,680 460,684 460,762" fill="#c8b898" stroke="#2c2c2c" stroke-width="1.5" fill-opacity="0.8"/>
+
+  <!-- === 3D FURNITURE === -->
+
+  <!-- BED (simplified box) -->
+  <!-- Position: x=0.5..2, y=0.3..2.3, z=0..0.5 -->
+  <!-- Base corners:
+    (0.5,0.3,0): (280+14+6.6, 560+7+3.3) = (300.6,570.3) ~ (301,570)
+    (2,0.3,0): (280+56+6.6, 560+28+3.3) = (342.6,591.3) ~ (343,591)
+    (2,2.3,0): (343-2*22, 591+2*11) = (299,613)
+    (0.5,2.3,0): (301-44, 570+22) = (257,592)
+    Top z=0.5 (dy=-18):
+  -->
+  <polygon points="301,570 343,591 299,613 257,592" fill="#c8b89a" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="301,552 343,573 343,591 301,570" fill="#d4c4a8" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="301,552 257,574 257,592 301,570" fill="#baa888" stroke="#8c7a62" stroke-width="1"/>
+  <!-- Pillow on bed -->
+  <polygon points="306,556 325,566 322,572 303,562" fill="#e8ddd0" stroke="#8c7a62" stroke-width="0.5"/>
+  <polygon points="328,567 347,577 344,583 325,573" fill="#e8ddd0" stroke="#8c7a62" stroke-width="0.5"/>
+
+  <!-- DESK / HOME OFFICE (x=2.5..3.4, y=0.2..0.9, z=0..0.75) -->
+  <polygon points="350,567 375,580 362,587 337,574" fill="#d4c4a8" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="350,540 375,553 375,580 350,567" fill="#c8b898" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="350,540 337,547 337,574 350,567" fill="#bca888" stroke="#8c7a62" stroke-width="1"/>
+  <!-- Monitor -->
+  <polygon points="358,544 368,549 368,536 358,531" fill="#4a4540" stroke="#2c2c2c" stroke-width="0.5"/>
+
+  <!-- SOFA L (estar, x=0.3..2, y=3.3..4.5) -->
+  <polygon points="222,601 278,631 270,649 214,619" fill="#c8b8a0" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="222,583 278,613 278,631 222,601" fill="#b8a888" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="222,583 214,587 214,619 222,601" fill="#a89878" stroke="#8c7a62" stroke-width="1"/>
+
+  <!-- DINING TABLE (x=4..6.5, y=3.5..5, z=0..0.75) -->
+  <polygon points="336,660 406,699 386,710 316,671" fill="#e0d0b8" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="336,633 406,672 406,699 336,660" fill="#d0c0a8" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="336,633 316,644 316,671 336,660" fill="#c0b098" stroke="#8c7a62" stroke-width="1"/>
+
+  <!-- KITCHEN COUNTER (x=7.5..10, y=3.2..3.9, z=0..0.9) -->
+  <polygon points="426,699 490,733 484,736 420,702" fill="#d0c8b8" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="426,666 490,700 490,733 426,699" fill="#c8c0b0" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="426,666 420,669 420,702 426,699" fill="#b8b0a0" stroke="#8c7a62" stroke-width="1"/>
+  <!-- Stovetop circles -->
+  <ellipse cx="451" cy="670" rx="5" ry="3" fill="none" stroke="#8c7a62" stroke-width="1"/>
+  <ellipse cx="464" cy="676" rx="5" ry="3" fill="none" stroke="#8c7a62" stroke-width="1"/>
+
+  <!-- REFRIGERATOR (x=9.2..10.1, y=5..6.2, z=0..1.8) -->
+  <polygon points="468,754 494,768 490,770 464,756" fill="#c8c0b0" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="468,678 494,692 494,768 468,754" fill="#d8d0c0" stroke="#8c7a62" stroke-width="1"/>
+  <polygon points="468,678 464,680 464,756 468,754" fill="#c0b8a8" stroke="#8c7a62" stroke-width="1"/>
+
+  <!-- BALCON PLANTS (decorative) -->
+  <circle cx="155" cy="606" r="8" fill="#6a8a5a" stroke="#4a6a3a" stroke-width="1"/>
+  <circle cx="168" cy="600" r="6" fill="#7a9a6a" stroke="#4a6a3a" stroke-width="1"/>
+  <line x1="155" y1="614" x2="155" y2="622" stroke="#8a6a4a" stroke-width="2"/>
+  <line x1="168" y1="606" x2="168" y2="614" stroke="#8a6a4a" stroke-width="2"/>
+
+  <!-- === ROOM LABELS === -->
+  <text x="262" y="592" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#2a4a6a" text-anchor="middle">DORM</text>
+  <text x="290" y="678" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#6a4a20" text-anchor="middle">ESTAR / COMEDOR</text>
+  <text x="400" y="722" font-family="Georgia, serif" font-size="9" font-weight="bold" fill="#4a3a20" text-anchor="middle">COCINA</text>
+  <text x="152" y="622" font-family="Georgia, serif" font-size="8" font-weight="bold" fill="#2a4a2a" text-anchor="middle">BALCÓN</text>
+
+  <!-- Dimension annotations -->
+  <line x1="280" y1="440" x2="566" y2="583" stroke="#888888" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="430" y="432" font-family="Georgia, serif" font-size="10" fill="#555555" text-anchor="middle">10.21 m</text>
+
+  <line x1="566" y1="609" x2="566" y2="703" stroke="#888888" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="598" y="660" font-family="Georgia, serif" font-size="10" fill="#555555" text-anchor="middle">2.60 m</text>
+
+  <!-- Style palette chips -->
+  <rect x="840" y="440" width="220" height="160" rx="6" fill="#f5f2ee" stroke="#cccccc" stroke-width="1"/>
+  <text x="950" y="460" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#2c2c2c" text-anchor="middle">PALETA NÓRDICO/WABI-SABI</text>
+  <rect x="852" y="472" width="28" height="28" rx="3" fill="#c8b89a"/>
+  <text x="886" y="483" font-family="Georgia, serif" font-size="9" fill="#555555">Madera clara / roble</text>
+  <text x="886" y="495" font-family="Georgia, serif" font-size="8" fill="#888888">#C8B89A</text>
+  <rect x="852" y="508" width="28" height="28" rx="3" fill="#dce8f0"/>
+  <text x="886" y="519" font-family="Georgia, serif" font-size="9" fill="#555555">Azul humo / niebla</text>
+  <text x="886" y="531" font-family="Georgia, serif" font-size="8" fill="#888888">#DCE8F0</text>
+  <rect x="852" y="544" width="28" height="28" rx="3" fill="#f0ead8"/>
+  <text x="886" y="555" font-family="Georgia, serif" font-size="9" fill="#555555">Beige lino / arena</text>
+  <text x="886" y="567" font-family="Georgia, serif" font-size="8" fill="#888888">#F0EAD8</text>
+  <rect x="852" y="580" width="28" height="28" rx="3" fill="#6a8a5a"/>
+  <text x="886" y="591" font-family="Georgia, serif" font-size="9" fill="#555555">Verde musgo / planta</text>
+  <text x="886" y="603" font-family="Georgia, serif" font-size="8" fill="#888888">#6A8A5A</text>
+
+  <!-- Design notes -->
+  <rect x="840" y="620" width="220" height="140" rx="6" fill="#f5f2ee" stroke="#cccccc" stroke-width="1"/>
+  <text x="950" y="640" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#2c2c2c" text-anchor="middle">CRITERIOS DE DISEÑO</text>
+  <text x="852" y="658" font-family="Georgia, serif" font-size="9" fill="#444444">&#x2022; Home office en dormitorio</text>
+  <text x="852" y="673" font-family="Georgia, serif" font-size="9" fill="#444444">&#x2022; Living ampliado sin tv dominante</text>
+  <text x="852" y="688" font-family="Georgia, serif" font-size="9" fill="#444444">&#x2022; Cocina semi-abierta al comedor</text>
+  <text x="852" y="703" font-family="Georgia, serif" font-size="9" fill="#444444">&#x2022; Balcón como extension verde</text>
+  <text x="852" y="718" font-family="Georgia, serif" font-size="9" fill="#444444">&#x2022; Madera + lino + piedra</text>
+  <text x="852" y="733" font-family="Georgia, serif" font-size="9" fill="#444444">&#x2022; Luz natural maximizada</text>
+  <text x="852" y="748" font-family="Georgia, serif" font-size="9" fill="#444444">&#x2022; Minimo desorden visual</text>
+
+  <!-- Footer -->
+  <text x="550" y="800" font-family="Georgia, serif" font-size="9" fill="#aaaaaa" text-anchor="middle">Vista axonometrica generada a partir de datos de Info Entradas. Sujeto a ajustes con feedback del usuario.</text>
+
+</svg>
