@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="850" viewBox="0 0 1100 850"
+     font-family="'Helvetica Neue', Arial, sans-serif">
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  DEPTO 102 — BAJO LAS LOMITAS — PLANTA ARQUITECTÓNICA      -->
+  <!--  Nordic / Wabi-sabi palette                                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <defs>
+    <!-- Hatch pattern for placard (built-in closet) -->
+    <pattern id="hatch" patternUnits="userSpaceOnUse" width="8" height="8">
+      <line x1="0" y1="8" x2="8" y2="0" stroke="#8A7A6A" stroke-width="1"/>
+    </pattern>
+    <!-- Hatch for dimension leaders -->
+    <marker id="arrowEnd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#444"/>
+    </marker>
+    <marker id="arrowStart" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse">
+      <path d="M0,0 L0,6 L8,3 z" fill="#444"/>
+    </marker>
+    <!-- Drop shadow for furniture -->
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1.5" dy="1.5" stdDeviation="2" flood-color="#00000022"/>
+    </filter>
+  </defs>
+
+  <!-- ─── BACKGROUND ─── -->
+  <rect width="1100" height="850" fill="#F8F5EE"/>
+
+  <!-- ─── TITLE BLOCK ─── -->
+  <rect x="0" y="0" width="1100" height="56" fill="#2C3E3A" rx="0"/>
+  <text x="550" y="22" text-anchor="middle" fill="#F0EAD8" font-size="13.5" font-weight="bold" letter-spacing="1.2">
+    DEPTO 102 — BAJO LAS LOMITAS — PLANTA ARQUITECTÓNICA
+  </text>
+  <text x="550" y="42" text-anchor="middle" fill="#B8CEC8" font-size="10.5" letter-spacing="0.8">
+    Sup. Total: 56,43 m²  |  Cubierta: 53,21 m²  |  Semicubierta (Balcón): 3,22 m²  |  Piso 1  |  Escala 1:70
+  </text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  ROOM FILLS  (rendered first, below walls)                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- DORMITORIO fill (x=170→422, y=130→340) -->
+  <rect x="175" y="135" width="242" height="200" fill="#F0EAD8"/>
+
+  <!-- CORREDOR fill (x=422→520, y=130→340) -->
+  <rect x="427" y="135" width="88" height="200" fill="#E8E0D0"/>
+
+  <!-- BAÑO fill (x=520→702, y=130→249) -->
+  <rect x="525" y="135" width="172" height="109" fill="#DCE8F0"/>
+
+  <!-- TOILETTE fill (x=702→786, y=130→249) -->
+  <rect x="707" y="135" width="74" height="109" fill="#DCE8F0"/>
+
+  <!-- COCINA+ENTRADA fill (x=786→885, y=130→340) -->
+  <rect x="791" y="135" width="89" height="200" fill="#EDE5D8"/>
+
+  <!-- ESTAR/COMEDOR fill (x=170→685, y=340→550) -->
+  <rect x="175" y="345" width="505" height="200" fill="#F4EFEA"/>
+
+  <!-- BALCÓN fill (x=95→170, y=340→550) -->
+  <rect x="100" y="345" width="65" height="200" fill="#E0EBE0"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  OUTER WALL POLYGON (L-shape, 10px stroke)                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <polygon
+    points="170,130 885,130 885,340 685,340 685,550 95,550 95,340 170,340"
+    fill="none"
+    stroke="#2C2C2C"
+    stroke-width="10"
+    stroke-linejoin="miter"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  INTERIOR WALLS (7px)                                       -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- 1. Dormitorio / Corredor vertical: x=422, y=130→340 -->
+  <line x1="422" y1="130" x2="422" y2="295" stroke="#2C2C2C" stroke-width="7"/>
+  <!-- gap for dorm door y=295→340 -->
+  <!-- door leaf shown separately -->
+
+  <!-- 2. Corredor/Baño vertical: x=520, y=130→249 -->
+  <line x1="520" y1="130" x2="520" y2="249" stroke="#2C2C2C" stroke-width="7"/>
+
+  <!-- 3. Baño/Toilette vertical: x=702, y=130→249 -->
+  <line x1="702" y1="130" x2="702" y2="249" stroke="#2C2C2C" stroke-width="7"/>
+
+  <!-- 4. Toilette right / kitchen left: x=786, y=130→340 -->
+  <!-- Door opening y=195→230 (toilette door) — split into two segments -->
+  <line x1="786" y1="130" x2="786" y2="195" stroke="#2C2C2C" stroke-width="7"/>
+  <line x1="786" y1="230" x2="786" y2="340" stroke="#2C2C2C" stroke-width="7"/>
+
+  <!-- 5. Baño+Toilette bottom horizontal: y=249, x=520→786 -->
+  <!-- Gap for bano door x=560→600 -->
+  <line x1="520" y1="249" x2="560" y2="249" stroke="#2C2C2C" stroke-width="7"/>
+  <line x1="600" y1="249" x2="786" y2="249" stroke="#2C2C2C" stroke-width="7"/>
+
+  <!-- 6. Dorm bottom wall: y=340, x=170→422 -->
+  <line x1="170" y1="340" x2="422" y2="340" stroke="#2C2C2C" stroke-width="7"/>
+
+  <!-- 7. Service lower wall: y=340, x=520→685 -->
+  <line x1="520" y1="340" x2="685" y2="340" stroke="#2C2C2C" stroke-width="7"/>
+
+  <!-- Corredor bottom wall segment x=422→520 is OPEN (door passage) — just show partial -->
+  <!-- Door jamb lines at x=422 and x=520 at y=340 are implied by wall ends -->
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  DOORS                                                      -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- 1. DORMITORIO door: wall x=422, opening y=295→340, swing RIGHT into corredor -->
+  <!-- Door leaf: line from (422,295) to (467,340) approx arc endpoint -->
+  <line x1="422" y1="295" x2="422" y2="340" stroke="#F8F5EE" stroke-width="8"/>
+  <line x1="422" y1="295" x2="467" y2="340" stroke="#2C2C2C" stroke-width="1.5"/>
+  <path d="M422,295 A45,45 0 0,1 467,340" fill="none" stroke="#2C2C2C" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- 2. BAÑO door: wall y=249, opening x=560→600, swing DOWN into corredor/estar -->
+  <line x1="560" y1="249" x2="600" y2="249" stroke="#F8F5EE" stroke-width="8"/>
+  <line x1="560" y1="249" x2="560" y2="289" stroke="#2C2C2C" stroke-width="1.5"/>
+  <path d="M560,249 A40,40 0 0,1 600,249" fill="none" stroke="#2C2C2C" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- 3. TOILETTE door: wall x=786, opening y=195→230, swing LEFT into toilette -->
+  <line x1="786" y1="195" x2="786" y2="230" stroke="#F8F5EE" stroke-width="8"/>
+  <line x1="786" y1="195" x2="751" y2="230" stroke="#2C2C2C" stroke-width="1.5"/>
+  <path d="M786,195 A35,35 0 0,0 751,230" fill="none" stroke="#2C2C2C" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- 4. ENTRANCE door: right outer wall x=885, opening y=285→325, swing LEFT into cocina -->
+  <line x1="885" y1="285" x2="885" y2="325" stroke="#F8F5EE" stroke-width="10"/>
+  <line x1="885" y1="285" x2="845" y2="285" stroke="#2C2C2C" stroke-width="1.5"/>
+  <path d="M885,285 A40,40 0 0,0 845,325" fill="none" stroke="#2C2C2C" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- 5. BALCÓN sliding door: left wall x=170 (lower zone), opening y=370→450 -->
+  <!-- Sliding door — double line + arrow indicators -->
+  <line x1="170" y1="370" x2="170" y2="450" stroke="#F8F5EE" stroke-width="10"/>
+  <!-- Two sliding panels -->
+  <rect x="162" y="370" width="16" height="38" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+  <rect x="162" y="408" width="16" height="38" fill="none" stroke="#2C2C2C" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <!-- Arrow indicators -->
+  <line x1="166" y1="389" x2="160" y2="389" stroke="#2C2C2C" stroke-width="1" marker-end="url(#arrowEnd)"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  WINDOWS                                                    -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- Window break convention: triple line in wall -->
+  <!-- 1. DORMITORIO window: top wall y=130, x=200→360 -->
+  <line x1="200" y1="125" x2="360" y2="125" stroke="#F8F5EE" stroke-width="12"/>
+  <line x1="200" y1="125" x2="360" y2="125" stroke="#7AACC8" stroke-width="3"/>
+  <line x1="200" y1="131" x2="360" y2="131" stroke="#7AACC8" stroke-width="3"/>
+  <line x1="200" y1="137" x2="360" y2="137" stroke="#7AACC8" stroke-width="3"/>
+  <!-- Window sill lines -->
+  <line x1="200" y1="124" x2="200" y2="138" stroke="#2C2C2C" stroke-width="2"/>
+  <line x1="360" y1="124" x2="360" y2="138" stroke="#2C2C2C" stroke-width="2"/>
+
+  <!-- 2. ESTAR window: bottom wall y=550, x=280→540 -->
+  <line x1="280" y1="545" x2="540" y2="545" stroke="#F8F5EE" stroke-width="12"/>
+  <line x1="280" y1="545" x2="540" y2="545" stroke="#7AACC8" stroke-width="3"/>
+  <line x1="280" y1="551" x2="540" y2="551" stroke="#7AACC8" stroke-width="3"/>
+  <line x1="280" y1="557" x2="540" y2="557" stroke="#7AACC8" stroke-width="3"/>
+  <line x1="280" y1="544" x2="280" y2="558" stroke="#2C2C2C" stroke-width="2"/>
+  <line x1="540" y1="544" x2="540" y2="558" stroke="#2C2C2C" stroke-width="2"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  FURNITURE — DORMITORIO                                     -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- BED 1.40×2.00m (98px × 140px): x=182→280, y=155→295 -->
+  <rect x="182" y="155" width="98" height="140" rx="4" fill="#E8DFD0" stroke="#8A7A6A" stroke-width="1.5" filter="url(#softShadow)"/>
+  <!-- Headboard -->
+  <rect x="182" y="155" width="98" height="16" rx="3" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1.5"/>
+  <!-- Pillow left -->
+  <rect x="188" y="176" width="36" height="24" rx="5" fill="#F5F0E8" stroke="#B0A090" stroke-width="1"/>
+  <!-- Pillow right -->
+  <rect x="234" y="176" width="36" height="24" rx="5" fill="#F5F0E8" stroke="#B0A090" stroke-width="1"/>
+  <!-- Blanket fold -->
+  <rect x="182" y="230" width="98" height="8" rx="2" fill="#D4C8B4" stroke="#A89880" stroke-width="0.8"/>
+
+  <!-- BEDSIDE TABLES -->
+  <rect x="173" y="165" width="14" height="14" rx="2" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1"/>
+  <rect x="286" y="165" width="14" height="14" rx="2" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1"/>
+  <!-- Lamp circles on bedside tables -->
+  <circle cx="180" cy="172" r="4" fill="#F0D8A0" stroke="#8A7A6A" stroke-width="0.8"/>
+  <circle cx="293" cy="172" r="4" fill="#F0D8A0" stroke="#8A7A6A" stroke-width="0.8"/>
+
+  <!-- DESK (home office) 1.20×0.60m (84×42px): x=306→390, y=142→184 -->
+  <rect x="306" y="142" width="84" height="42" rx="3" fill="#D4C4A8" stroke="#8A7A6A" stroke-width="1.5" filter="url(#softShadow)"/>
+  <!-- Monitor on desk -->
+  <rect x="326" y="145" width="36" height="24" rx="2" fill="#3A4A48" stroke="#2C2C2C" stroke-width="1"/>
+  <rect x="338" y="169" width="12" height="4" fill="#2C2C2C"/>
+  <!-- Keyboard suggestion -->
+  <rect x="315" y="173" width="30" height="8" rx="1" fill="#E0D8C8" stroke="#8A7A6A" stroke-width="0.8"/>
+  <!-- Mouse -->
+  <ellipse cx="357" cy="177" rx="5" ry="7" fill="#C8B89A" stroke="#8A7A6A" stroke-width="0.8"/>
+
+  <!-- DESK CHAIR: circle at x=348, y=200 -->
+  <circle cx="348" cy="200" r="15" fill="#B0A080" stroke="#8A7A6A" stroke-width="1.2" filter="url(#softShadow)"/>
+  <circle cx="348" cy="200" r="9" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1"/>
+
+  <!-- PLACARD (built-in closet): x=392→418, y=148→325 -->
+  <rect x="392" y="148" width="26" height="177" fill="url(#hatch)" stroke="#6A5A48" stroke-width="1.5"/>
+  <text x="405" y="245" text-anchor="middle" fill="#6A5A48" font-size="7" transform="rotate(-90,405,245)">PLACARD</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  FURNITURE — BAÑO                                           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- BATHTUB: x=528→642, y=138→218 -->
+  <rect x="528" y="138" width="114" height="80" rx="12" fill="#E8F0F8" stroke="#7AACC8" stroke-width="1.5" filter="url(#softShadow)"/>
+  <rect x="535" y="145" width="100" height="68" rx="10" fill="#D0E4F4" stroke="#7AACC8" stroke-width="0.8"/>
+  <!-- Faucet -->
+  <circle cx="642" cy="178" r="4" fill="#B0C8DC" stroke="#7AACC8" stroke-width="1"/>
+  <!-- Drain -->
+  <circle cx="588" cy="195" r="3" fill="#A0B8CC"/>
+
+  <!-- WC BAÑO: ellipse centered ~(660, 165) -->
+  <ellipse cx="660" cy="165" rx="14" ry="20" fill="#EAF2FA" stroke="#7AACC8" stroke-width="1.5"/>
+  <ellipse cx="660" cy="168" rx="10" ry="14" fill="#D8ECF8" stroke="#7AACC8" stroke-width="0.8"/>
+  <rect x="649" y="143" width="22" height="10" rx="3" fill="#D0E4F0" stroke="#7AACC8" stroke-width="1"/>
+
+  <!-- SINK/VANITY BAÑO: at ~(660, 228) -->
+  <rect x="649" y="220" width="22" height="18" rx="4" fill="#EAF2FA" stroke="#7AACC8" stroke-width="1.5"/>
+  <ellipse cx="660" cy="229" rx="8" ry="6" fill="#D0E4F4" stroke="#7AACC8" stroke-width="0.8"/>
+  <circle cx="660" cy="226" r="2" fill="#A0B8CC"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  FURNITURE — TOILETTE                                       -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- WC TOILETTE: centered ~(744, 160) -->
+  <ellipse cx="744" cy="165" rx="14" ry="20" fill="#EAF2FA" stroke="#7AACC8" stroke-width="1.5"/>
+  <ellipse cx="744" cy="168" rx="10" ry="14" fill="#D8ECF8" stroke="#7AACC8" stroke-width="0.8"/>
+  <rect x="733" y="143" width="22" height="10" rx="3" fill="#D0E4F0" stroke="#7AACC8" stroke-width="1"/>
+
+  <!-- SMALL SINK TOILETTE: at ~(744, 220) -->
+  <rect x="733" y="215" width="22" height="18" rx="4" fill="#EAF2FA" stroke="#7AACC8" stroke-width="1.5"/>
+  <ellipse cx="744" cy="224" rx="8" ry="6" fill="#D0E4F4" stroke="#7AACC8" stroke-width="0.8"/>
+  <circle cx="744" cy="221" r="2" fill="#A0B8CC"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  FURNITURE — COCINA + ENTRADA                               -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- KITCHEN COUNTER top horizontal: y=138→168, x=796→880 -->
+  <rect x="796" y="138" width="84" height="30" rx="3" fill="#D4C4A8" stroke="#8A7A6A" stroke-width="1.5"/>
+  <!-- Kitchen counter right vertical: x=857→880, y=168→330 -->
+  <rect x="857" y="168" width="23" height="162" rx="3" fill="#D4C4A8" stroke="#8A7A6A" stroke-width="1.5"/>
+
+  <!-- Sink in counter top -->
+  <rect x="825" y="141" width="24" height="22" rx="3" fill="#B8C8D8" stroke="#7AACC8" stroke-width="1"/>
+  <circle cx="837" cy="152" r="3" fill="#8AACC0"/>
+
+  <!-- Stove burners on counter -->
+  <circle cx="804" cy="148" r="5" fill="#9A8A78" stroke="#6A5A48" stroke-width="1"/>
+  <circle cx="815" cy="148" r="5" fill="#9A8A78" stroke="#6A5A48" stroke-width="1"/>
+  <circle cx="804" cy="160" r="5" fill="#9A8A78" stroke="#6A5A48" stroke-width="1"/>
+  <circle cx="815" cy="160" r="5" fill="#9A8A78" stroke="#6A5A48" stroke-width="1"/>
+
+  <!-- Refrigerator suggestion -->
+  <rect x="797" y="258" width="36" height="50" rx="4" fill="#E0D8C8" stroke="#8A7A6A" stroke-width="1.5"/>
+  <line x1="815" y1="258" x2="815" y2="308" stroke="#8A7A6A" stroke-width="0.8"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  FURNITURE — ESTAR/COMEDOR                                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- TV UNIT: top wall of estar, x=200→300, y=352→365 -->
+  <rect x="200" y="352" width="100" height="13" rx="2" fill="#8A7A6A" stroke="#6A5A48" stroke-width="1.5"/>
+  <!-- TV screen -->
+  <rect x="210" y="347" width="72" height="10" rx="1" fill="#2A3A38" stroke="#1A2A28" stroke-width="1"/>
+
+  <!-- L-SHAPED SOFA -->
+  <!-- Main section: x=200→370, y=370→415 -->
+  <rect x="200" y="375" width="170" height="36" rx="5" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1.5" filter="url(#softShadow)"/>
+  <!-- Backrest top of main -->
+  <rect x="200" y="370" width="170" height="10" rx="3" fill="#B0A080" stroke="#8A7A6A" stroke-width="1.2"/>
+  <!-- Sofa cushions main -->
+  <rect x="206" y="376" width="50" height="30" rx="4" fill="#D4C4A8" stroke="#B0A080" stroke-width="0.8"/>
+  <rect x="262" y="376" width="50" height="30" rx="4" fill="#D4C4A8" stroke="#B0A080" stroke-width="0.8"/>
+  <rect x="318" y="376" width="46" height="30" rx="4" fill="#D4C4A8" stroke="#B0A080" stroke-width="0.8"/>
+
+  <!-- Side section (chaise): x=200→255, y=415→475 -->
+  <rect x="200" y="411" width="55" height="60" rx="5" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1.5" filter="url(#softShadow)"/>
+  <!-- Backrest left of side -->
+  <rect x="200" y="411" width="10" height="60" rx="3" fill="#B0A080" stroke="#8A7A6A" stroke-width="1.2"/>
+  <!-- Side cushion -->
+  <rect x="215" y="417" width="34" height="48" rx="4" fill="#D4C4A8" stroke="#B0A080" stroke-width="0.8"/>
+
+  <!-- COFFEE TABLE: x=285→365, y=425→475 -->
+  <rect x="285" y="425" width="80" height="50" rx="6" fill="#E8E0D4" stroke="#8A7A6A" stroke-width="1.5" filter="url(#softShadow)"/>
+  <!-- Coffee table surface detail -->
+  <rect x="290" y="430" width="70" height="40" rx="4" fill="#F0EAE0" stroke="#C8B89A" stroke-width="0.8"/>
+  <!-- Small decorative items -->
+  <circle cx="315" cy="452" r="5" fill="#6A8A5A" stroke="#4A6A3A" stroke-width="0.8"/>
+  <rect x="328" y="448" width="14" height="9" rx="1" fill="#C8B89A"/>
+
+  <!-- DINING TABLE (marble look): x=445→520, y=368→495 -->
+  <rect x="445" y="368" width="75" height="127" rx="6" fill="#E8E8E4" stroke="#8A9888" stroke-width="1.5" filter="url(#softShadow)"/>
+  <!-- Marble veining -->
+  <path d="M455,375 Q490,400 470,430 Q450,460 480,485" fill="none" stroke="#D0D0CC" stroke-width="1.2"/>
+  <path d="M485,370 Q510,395 500,420" fill="none" stroke="#D8D8D4" stroke-width="0.8"/>
+
+  <!-- Dining chairs (4) -->
+  <!-- Top 2 chairs -->
+  <rect x="450" y="350" width="28" height="20" rx="3" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1.2"/>
+  <rect x="487" y="350" width="28" height="20" rx="3" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1.2"/>
+  <!-- Bottom 2 chairs -->
+  <rect x="450" y="495" width="28" height="20" rx="3" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1.2"/>
+  <rect x="487" y="495" width="28" height="20" rx="3" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1.2"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  FURNITURE — BALCÓN                                         -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- Bistro table circle: center ~(132, 430) -->
+  <circle cx="132" cy="430" r="16" fill="#E8E0D0" stroke="#8A7A6A" stroke-width="1.5" filter="url(#softShadow)"/>
+  <circle cx="132" cy="430" r="11" fill="#F0EAE0" stroke="#C8B89A" stroke-width="0.8"/>
+
+  <!-- Bistro chair -->
+  <rect x="118" y="460" width="22" height="18" rx="3" fill="#C8B89A" stroke="#8A7A6A" stroke-width="1.2"/>
+
+  <!-- Tall plant (balcón) -->
+  <line x1="132" y1="360" x2="132" y2="380" stroke="#6A8A5A" stroke-width="2"/>
+  <circle cx="132" cy="355" r="12" fill="#6A8A5A" stroke="#4A6A3A" stroke-width="1.2"/>
+  <circle cx="122" cy="362" r="7" fill="#5A7A4A" stroke="#4A6A3A" stroke-width="1"/>
+  <circle cx="142" cy="362" r="7" fill="#5A7A4A" stroke="#4A6A3A" stroke-width="1"/>
+  <rect x="126" y="380" width="12" height="10" rx="2" fill="#9A7A5A" stroke="#7A5A3A" stroke-width="1"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  LIVING AREA PLANT (decorative)                             -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Corner plant near estar -->
+  <line x1="620" y1="490" x2="620" y2="520" stroke="#6A8A5A" stroke-width="2"/>
+  <circle cx="620" cy="484" r="16" fill="#6A8A5A" stroke="#4A6A3A" stroke-width="1.5"/>
+  <circle cx="606" cy="494" r="9" fill="#5A7A4A" stroke="#4A6A3A" stroke-width="1"/>
+  <circle cx="634" cy="494" r="9" fill="#5A7A4A" stroke="#4A6A3A" stroke-width="1"/>
+  <rect x="612" y="520" width="16" height="12" rx="2" fill="#9A7A5A" stroke="#7A5A3A" stroke-width="1"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  ROOM LABELS                                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- DORMITORIO label -->
+  <text x="282" y="320" text-anchor="middle" fill="#2C2C2C" font-size="10" font-weight="bold" letter-spacing="0.8">DORMITORIO</text>
+  <text x="282" y="332" text-anchor="middle" fill="#6A5A48" font-size="8">3.60 × 3.00 m</text>
+
+  <!-- CORREDOR label -->
+  <text x="471" y="280" text-anchor="middle" fill="#2C2C2C" font-size="8" font-weight="bold" transform="rotate(-90,471,280)">CORREDOR</text>
+
+  <!-- BAÑO label -->
+  <text x="611" y="196" text-anchor="middle" fill="#2C2C2C" font-size="9" font-weight="bold" letter-spacing="0.6">BAÑO</text>
+  <text x="611" y="207" text-anchor="middle" fill="#6A5A48" font-size="7.5">2.60 × 1.70 m</text>
+
+  <!-- TOILETTE label -->
+  <text x="744" y="196" text-anchor="middle" fill="#2C2C2C" font-size="8" font-weight="bold" letter-spacing="0.4">TOILETTE</text>
+  <text x="744" y="207" text-anchor="middle" fill="#6A5A48" font-size="7">1.20 × 1.70 m</text>
+
+  <!-- COCINA + ENTRADA label -->
+  <text x="838" y="250" text-anchor="middle" fill="#2C2C2C" font-size="8.5" font-weight="bold" transform="rotate(-90,838,250)">COCINA / ENTRADA</text>
+
+  <!-- ESTAR/COMEDOR label -->
+  <text x="390" y="498" text-anchor="middle" fill="#2C2C2C" font-size="11" font-weight="bold" letter-spacing="0.8">ESTAR / COMEDOR</text>
+  <text x="390" y="512" text-anchor="middle" fill="#6A5A48" font-size="8.5">7.35 × 3.00 m</text>
+
+  <!-- BALCÓN label -->
+  <text x="132" y="455" text-anchor="middle" fill="#2C2C2C" font-size="7.5" font-weight="bold" transform="rotate(-90,132,455)">BALCÓN</text>
+  <text x="132" y="475" text-anchor="middle" fill="#6A5A48" font-size="6.5" transform="rotate(-90,132,475)">1.07m</text>
+
+  <!-- BALCÓN "semicubierta" note -->
+  <text x="132" y="510" text-anchor="middle" fill="#6A8A5A" font-size="6" font-style="italic" transform="rotate(-90,132,510)">semicubierta</text>
+
+  <!-- HOME OFFICE note in dorm -->
+  <text x="347" y="168" text-anchor="middle" fill="#6A5A48" font-size="7" font-style="italic">home office</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  DIMENSION LINES                                            -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- STYLE: thin gray lines with arrows and text -->
+
+  <!-- Total width upper 10.21m: y=100, x=170→885 -->
+  <line x1="170" y1="100" x2="885" y2="100" stroke="#555" stroke-width="0.8" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <line x1="170" y1="96" x2="170" y2="114" stroke="#555" stroke-width="0.8"/>
+  <line x1="885" y1="96" x2="885" y2="114" stroke="#555" stroke-width="0.8"/>
+  <rect x="481" y="89" width="54" height="14" rx="3" fill="#F8F5EE" stroke="none"/>
+  <text x="508" y="100" text-anchor="middle" fill="#333" font-size="9" font-weight="bold">10.21 m</text>
+
+  <!-- Estar width 7.35m: y=578, x=170→685 -->
+  <line x1="170" y1="572" x2="685" y2="572" stroke="#555" stroke-width="0.8" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <line x1="170" y1="568" x2="170" y2="582" stroke="#555" stroke-width="0.8"/>
+  <line x1="685" y1="568" x2="685" y2="582" stroke="#555" stroke-width="0.8"/>
+  <rect x="393" y="563" width="42" height="14" rx="3" fill="#F8F5EE" stroke="none"/>
+  <text x="414" y="573" text-anchor="middle" fill="#333" font-size="9" font-weight="bold">7.35 m</text>
+
+  <!-- Dormitorio width 3.60m: y=100, x=170→422 (internal tick below upper dim) -->
+  <line x1="170" y1="112" x2="422" y2="112" stroke="#777" stroke-width="0.7" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <rect x="267" y="104" width="36" height="12" rx="2" fill="#F8F5EE"/>
+  <text x="285" y="113" text-anchor="middle" fill="#555" font-size="8">3.60 m</text>
+
+  <!-- Corridor width 1.40m: y=112, x=422→520 -->
+  <line x1="422" y1="112" x2="520" y2="112" stroke="#777" stroke-width="0.7" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <rect x="443" y="104" width="36" height="12" rx="2" fill="#F8F5EE"/>
+  <text x="461" y="113" text-anchor="middle" fill="#555" font-size="8">1.40 m</text>
+
+  <!-- Baño width 2.60m: y=112, x=520→702 -->
+  <line x1="520" y1="112" x2="702" y2="112" stroke="#777" stroke-width="0.7" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <rect x="581" y="104" width="36" height="12" rx="2" fill="#F8F5EE"/>
+  <text x="599" y="113" text-anchor="middle" fill="#555" font-size="8">2.60 m</text>
+
+  <!-- Toilette width 1.20m: y=112, x=702→786 (but x=786 is toil right) -->
+  <!-- Actually toilette is 702→786 = 84px = 1.20m -->
+  <line x1="702" y1="112" x2="786" y2="112" stroke="#777" stroke-width="0.7" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <rect x="722" y="104" width="36" height="12" rx="2" fill="#F8F5EE"/>
+  <text x="740" y="113" text-anchor="middle" fill="#555" font-size="8">1.20 m</text>
+
+  <!-- Upper zone depth 3.00m vertical: x=62, y=130→340 -->
+  <line x1="62" y1="130" x2="62" y2="340" stroke="#555" stroke-width="0.8" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <line x1="57" y1="130" x2="72" y2="130" stroke="#555" stroke-width="0.8"/>
+  <line x1="57" y1="340" x2="72" y2="340" stroke="#555" stroke-width="0.8"/>
+  <rect x="32" y="225" width="34" height="12" rx="2" fill="#F8F5EE" stroke="none"/>
+  <text x="49" y="235" text-anchor="middle" fill="#333" font-size="9" font-weight="bold">3.00 m</text>
+
+  <!-- Lower zone depth 3.00m vertical: x=62, y=340→550 -->
+  <line x1="62" y1="340" x2="62" y2="550" stroke="#555" stroke-width="0.8" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <line x1="57" y1="340" x2="72" y2="340" stroke="#555" stroke-width="0.8"/>
+  <line x1="57" y1="550" x2="72" y2="550" stroke="#555" stroke-width="0.8"/>
+  <rect x="32" y="437" width="34" height="12" rx="2" fill="#F8F5EE" stroke="none"/>
+  <text x="49" y="447" text-anchor="middle" fill="#333" font-size="9" font-weight="bold">3.00 m</text>
+
+  <!-- Balcón width 1.07m: y=112 relative, here use x=95→170 at y=572 -->
+  <line x1="95" y1="572" x2="170" y2="572" stroke="#777" stroke-width="0.7" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <line x1="95" y1="568" x2="95" y2="582" stroke="#777" stroke-width="0.8"/>
+  <rect x="99" y="563" width="36" height="12" rx="2" fill="#F8F5EE"/>
+  <text x="117" y="573" text-anchor="middle" fill="#555" font-size="8">1.07 m</text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  NORTH ARROW COMPASS                                        -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <g transform="translate(990, 105)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#2C3E3A" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="28" fill="#F0EAD8" stroke="none"/>
+    <!-- N arrow (pointing up = North) -->
+    <polygon points="0,-24 -7,8 0,4 7,8" fill="#2C3E3A"/>
+    <polygon points="0,-24 -7,8 0,4" fill="#2C3E3A"/>
+    <polygon points="0,4 -7,8 0,24 7,8" fill="#8A8A7A"/>
+    <polygon points="0,4 7,8 0,24" fill="#8A8A7A"/>
+    <!-- Center dot -->
+    <circle cx="0" cy="0" r="3" fill="#2C3E3A"/>
+    <!-- N label -->
+    <text x="0" y="-32" text-anchor="middle" fill="#2C3E3A" font-size="11" font-weight="bold">N</text>
+    <!-- Cardinal points -->
+    <text x="34" y="4" text-anchor="middle" fill="#555" font-size="8">E</text>
+    <text x="-34" y="4" text-anchor="middle" fill="#555" font-size="8">O</text>
+    <text x="0" y="42" text-anchor="middle" fill="#555" font-size="8">S</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  SCALE BAR                                                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <g transform="translate(910, 175)">
+    <!-- Scale bar: 5m = 350px -->
+    <text x="0" y="-8" fill="#333" font-size="9" font-weight="bold">ESCALA 1:70</text>
+    <!-- Bar segments: 0-1m, 1-2m, 2-3m, 3-4m, 4-5m each 70px -->
+    <rect x="0" y="0" width="70" height="10" fill="#2C2C2C"/>
+    <rect x="70" y="0" width="70" height="10" fill="#F0EAD8" stroke="#2C2C2C" stroke-width="0.8"/>
+    <rect x="140" y="0" width="70" height="10" fill="#2C2C2C"/>
+    <rect x="210" y="0" width="70" height="10" fill="#F0EAD8" stroke="#2C2C2C" stroke-width="0.8"/>
+    <rect x="280" y="0" width="70" height="10" fill="#2C2C2C"/>
+    <!-- Tick marks and labels -->
+    <line x1="0" y1="0" x2="0" y2="15" stroke="#2C2C2C" stroke-width="1"/>
+    <line x1="70" y1="0" x2="70" y2="15" stroke="#2C2C2C" stroke-width="1"/>
+    <line x1="140" y1="0" x2="140" y2="15" stroke="#2C2C2C" stroke-width="1"/>
+    <line x1="210" y1="0" x2="210" y2="15" stroke="#2C2C2C" stroke-width="1"/>
+    <line x1="280" y1="0" x2="280" y2="15" stroke="#2C2C2C" stroke-width="1"/>
+    <line x1="350" y1="0" x2="350" y2="15" stroke="#2C2C2C" stroke-width="1"/>
+    <text x="0" y="24" text-anchor="middle" fill="#333" font-size="8">0</text>
+    <text x="70" y="24" text-anchor="middle" fill="#333" font-size="8">1</text>
+    <text x="140" y="24" text-anchor="middle" fill="#333" font-size="8">2</text>
+    <text x="210" y="24" text-anchor="middle" fill="#333" font-size="8">3</text>
+    <text x="280" y="24" text-anchor="middle" fill="#333" font-size="8">4</text>
+    <text x="350" y="24" text-anchor="middle" fill="#333" font-size="8">5 m</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  LEGEND BOX                                                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <g transform="translate(905, 245)">
+    <rect x="0" y="0" width="180" height="220" rx="5" fill="#F5F0E8" stroke="#2C3E3A" stroke-width="1.5"/>
+    <rect x="0" y="0" width="180" height="22" rx="5" fill="#2C3E3A"/>
+    <text x="90" y="15" text-anchor="middle" fill="#F0EAD8" font-size="9" font-weight="bold" letter-spacing="1">REFERENCIAS</text>
+
+    <!-- Legend items -->
+    <!-- Outer wall -->
+    <rect x="10" y="30" width="20" height="10" fill="#2C2C2C"/>
+    <text x="36" y="39" fill="#333" font-size="8.5">Muro exterior (10px)</text>
+
+    <!-- Interior wall -->
+    <rect x="10" y="48" width="20" height="7" fill="#2C2C2C"/>
+    <text x="36" y="55" fill="#333" font-size="8.5">Muro interior (7px)</text>
+
+    <!-- Window -->
+    <rect x="10" y="64" width="20" height="8" fill="none" stroke="#2C2C2C" stroke-width="1"/>
+    <line x1="10" y1="66" x2="30" y2="66" stroke="#7AACC8" stroke-width="1.5"/>
+    <line x1="10" y1="69" x2="30" y2="69" stroke="#7AACC8" stroke-width="1.5"/>
+    <line x1="10" y1="72" x2="30" y2="72" stroke="#7AACC8" stroke-width="1.5"/>
+    <text x="36" y="72" fill="#333" font-size="8.5">Ventana</text>
+
+    <!-- Door -->
+    <line x1="10" y1="85" x2="25" y2="85" stroke="#2C2C2C" stroke-width="1.5"/>
+    <path d="M10,85 A15,15 0 0,1 25,85" fill="none" stroke="#2C2C2C" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="36" y="89" fill="#333" font-size="8.5">Puerta c/arco</text>
+
+    <!-- Sliding door -->
+    <rect x="10" y="98" width="10" height="14" fill="none" stroke="#2C2C2C" stroke-width="1.2"/>
+    <rect x="20" y="98" width="10" height="14" fill="none" stroke="#2C2C2C" stroke-width="1" stroke-dasharray="2,1"/>
+    <text x="36" y="107" fill="#333" font-size="8.5">Puerta corrediza</text>
+
+    <!-- Placard hatch -->
+    <rect x="10" y="120" width="20" height="12" fill="url(#hatch)" stroke="#6A5A48" stroke-width="1"/>
+    <text x="36" y="129" fill="#333" font-size="8.5">Placard/Guardarropa</text>
+
+    <!-- Room colors -->
+    <rect x="10" y="140" width="12" height="10" fill="#F0EAD8" stroke="#8A7A6A" stroke-width="0.8"/>
+    <text x="28" y="149" fill="#333" font-size="8.5">Área seca / dormitorio</text>
+
+    <rect x="10" y="156" width="12" height="10" fill="#DCE8F0" stroke="#7AACC8" stroke-width="0.8"/>
+    <text x="28" y="165" fill="#333" font-size="8.5">Área húmeda</text>
+
+    <rect x="10" y="172" width="12" height="10" fill="#E0EBE0" stroke="#6A8A5A" stroke-width="0.8"/>
+    <text x="28" y="181" fill="#333" font-size="8.5">Balcón / exterior</text>
+
+    <!-- Sup totals -->
+    <line x1="8" y1="192" x2="172" y2="192" stroke="#C8B89A" stroke-width="0.8"/>
+    <text x="90" y="204" text-anchor="middle" fill="#2C3E3A" font-size="8" font-weight="bold">Sup. cubierta: 53,21 m²</text>
+    <text x="90" y="216" text-anchor="middle" fill="#2C3E3A" font-size="8">Sup. semicubierta: 3,22 m²</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  FLOOR PLAN BORDER / FRAME                                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <rect x="5" y="62" width="1090" height="775" fill="none" stroke="#2C3E3A" stroke-width="1.5"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  FOOTER NOTE                                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <rect x="0" y="808" width="1100" height="42" fill="#2C3E3A"/>
+  <text x="550" y="824" text-anchor="middle" fill="#F0EAD8" font-size="9" letter-spacing="0.5">
+    Diseño con integración de Home Office | Dormitorio con sector de trabajo delimitado | Nordic / Wabi-sabi | Complejo: BAJO LAS LOMITAS — PISO 1 — DEPTO 102
+  </text>
+  <text x="550" y="840" text-anchor="middle" fill="#8AADA8" font-size="8">
+    Nota: Plano de referencia arquitectónica. Verificar dimensiones en obra. Mobilario indicativo. Puertas y ventanas según proyecto ejecutivo.
+  </text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PISO 1 / DEPTO 102 stamp                                   -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <g transform="translate(910, 490)">
+    <rect x="0" y="0" width="180" height="80" rx="5" fill="#F5F0E8" stroke="#2C3E3A" stroke-width="2"/>
+    <text x="90" y="20" text-anchor="middle" fill="#2C3E3A" font-size="11" font-weight="bold">BAJO LAS LOMITAS</text>
+    <line x1="10" y1="26" x2="170" y2="26" stroke="#C8B89A" stroke-width="1"/>
+    <text x="90" y="42" text-anchor="middle" fill="#2C3E3A" font-size="13" font-weight="bold">DEPTO 102</text>
+    <text x="90" y="57" text-anchor="middle" fill="#6A7A6A" font-size="10">PISO 1</text>
+    <text x="90" y="72" text-anchor="middle" fill="#8A9888" font-size="8">Planta Arquitectónica</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  BAÑO/TOILETTE — reconfirm service zone area label          -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Corredor secondary label -->
+  <text x="471" y="330" text-anchor="middle" fill="#8A7A6A" font-size="7" transform="rotate(-90,471,330)">1.40m</text>
+
+</svg>
