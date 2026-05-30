@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1100" height="820" viewBox="0 0 1100 820"
+     font-family="'Helvetica Neue', Arial, sans-serif">
+
+  <!-- ============================================================
+       PLANTA ARQUITECTÓNICA v3 — DEPTO 102 "BAJO LAS LOMITAS"
+       Escala: 70px = 1m | Muros exteriores: 21px | Interiores: 8px
+       ============================================================ -->
+
+  <defs>
+    <!-- Hatch: muro exterior (diagonal oscuro, relleno base) -->
+    <pattern id="wall_ext" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#8A7A6A"/>
+      <line x1="0" y1="6" x2="6" y2="0" stroke="#5A4A3A" stroke-width="1.2"/>
+      <line x1="-1" y1="1" x2="1" y2="-1" stroke="#5A4A3A" stroke-width="1.2"/>
+      <line x1="5" y1="7" x2="7" y2="5" stroke="#5A4A3A" stroke-width="1.2"/>
+    </pattern>
+
+    <!-- Hatch: muro interior (diagonal claro) -->
+    <pattern id="wall_int" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
+      <rect width="5" height="5" fill="#A09080"/>
+      <line x1="0" y1="5" x2="5" y2="0" stroke="#8A7A6A" stroke-width="0.9"/>
+    </pattern>
+
+    <!-- Hatch: zona estructural (cruzado denso) -->
+    <pattern id="wall_struct" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#B0A898"/>
+      <line x1="0" y1="6" x2="6" y2="0" stroke="#4A3A2A" stroke-width="1.1"/>
+      <line x1="0" y1="0" x2="6" y2="6" stroke="#4A3A2A" stroke-width="1.1"/>
+    </pattern>
+
+    <!-- Hatch: balcón (diagonal verde claro discontinua) -->
+    <pattern id="balcon_hatch" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="8" x2="8" y2="0" stroke="#9AAA7A" stroke-width="0.8" stroke-dasharray="3,3"/>
+    </pattern>
+
+    <!-- Marcadores de flecha para cotas -->
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#606060"/>
+    </marker>
+    <marker id="arrow_r" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto-start-reverse">
+      <path d="M6,0 L0,3 L6,6 Z" fill="#606060"/>
+    </marker>
+  </defs>
+
+  <!-- ============================================================
+       FONDO GENERAL
+       ============================================================ -->
+  <rect width="1100" height="820" fill="#F8F5EE"/>
+
+  <!-- ============================================================
+       RELLENO DE HABITACIONES
+       ============================================================ -->
+
+  <!-- DORMITORIO -->
+  <rect x="191" y="151" width="252" height="179" fill="#DCE8F0"/>
+
+  <!-- CORREDOR superior -->
+  <rect x="451" y="151" width="98" height="179" fill="#EDE8E0"/>
+
+  <!-- BAÑO PRINCIPAL -->
+  <rect x="557" y="151" width="182" height="106" fill="#E8F0DC"/>
+
+  <!-- TOILETTE -->
+  <rect x="746" y="151" width="40" height="106" fill="#E8F0DC"/>
+
+  <!-- Franja corredor servicio bajo baño -->
+  <rect x="549" y="265" width="237" height="65" fill="#EDE8E0"/>
+
+  <!-- ESTAR / COMEDOR -->
+  <rect x="191" y="340" width="486" height="190" fill="#F0EAD8"/>
+
+  <!-- BALCÓN -->
+  <rect x="95" y="340" width="75" height="190" fill="#E0E8D0"/>
+  <rect x="95" y="340" width="75" height="190" fill="url(#balcon_hatch)" opacity="0.7"/>
+
+  <!-- VESTÍBULO ENTRADA -->
+  <rect x="685" y="340" width="179" height="99" fill="#F4F0E8"/>
+
+  <!-- ZONA ESTRUCTURAL DERECHA -->
+  <rect x="786" y="130" width="99" height="329" fill="url(#wall_struct)"/>
+  <rect x="786" y="130" width="99" height="329" fill="none" stroke="#4A3A2A" stroke-width="1.5"/>
+
+  <!-- ============================================================
+       SISTEMA DE MUROS — EXTERIORES (21px)
+       ============================================================ -->
+
+  <!-- Muro norte: y=130 a y=151, x=170–786 -->
+  <rect x="170" y="130" width="616" height="21" fill="url(#wall_ext)"/>
+
+  <!-- Muro oeste superior: x=170–191, y=130–340 -->
+  <rect x="170" y="130" width="21" height="210" fill="url(#wall_ext)"/>
+
+  <!-- Muro sur ESTAR: y=530–550, x=95–685 -->
+  <rect x="95" y="530" width="590" height="20" fill="url(#wall_ext)"/>
+
+  <!-- Muro oeste balcón: x=95–116, y=340–550 -->
+  <rect x="95" y="340" width="21" height="210" fill="url(#wall_ext)"/>
+
+  <!-- Muro este vestíbulo: x=864–885, y=340–459 -->
+  <rect x="864" y="340" width="21" height="119" fill="url(#wall_ext)"/>
+
+  <!-- Muro sur vestíbulo: y=439–459, x=685–885 -->
+  <rect x="685" y="439" width="200" height="20" fill="url(#wall_ext)"/>
+
+  <!-- ============================================================
+       MUROS INTERIORES — TABIQUES (8px)
+       ============================================================ -->
+
+  <!-- Tabique DORM / CORREDOR: x=443–451, y=151–330 -->
+  <rect x="443" y="151" width="8" height="179" fill="url(#wall_int)"/>
+
+  <!-- Tabique CORREDOR / BAÑO: x=549–557, y=151–265 -->
+  <rect x="549" y="151" width="8" height="114" fill="url(#wall_int)"/>
+
+  <!-- Tabique BAÑO / TOILETTE: x=739–746, y=151–265 -->
+  <rect x="739" y="151" width="7" height="114" fill="url(#wall_int)"/>
+
+  <!-- Tabique sur BAÑO: y=257–265, x=549–786 -->
+  <rect x="549" y="257" width="237" height="8" fill="url(#wall_int)"/>
+
+  <!-- Tabique divisorio N/S DORM: y=330–340, x=191–443 -->
+  <rect x="191" y="330" width="252" height="10" fill="url(#wall_int)"/>
+
+  <!-- Tabique divisorio N/S sector servicio: y=330–340, x=549–677 -->
+  <rect x="549" y="330" width="128" height="10" fill="url(#wall_int)"/>
+
+  <!-- Tabique ESTAR / Vestíbulo: x=677–685, y=330–459 -->
+  <rect x="677" y="330" width="8" height="129" fill="url(#wall_int)"/>
+
+  <!-- Muro transición balcón-este: x=166–191, y=340–530 -->
+  <rect x="166" y="340" width="25" height="190" fill="url(#wall_ext)"/>
+
+  <!-- Muro norte balcón: y=330–340, x=95–191 -->
+  <rect x="95" y="330" width="96" height="10" fill="url(#wall_int)"/>
+
+  <!-- ============================================================
+       CONTORNO EXTERIOR DEL POLÍGONO
+       ============================================================ -->
+  <polygon points="170,130 885,130 885,459 685,459 685,550 95,550 95,340 170,340"
+           fill="none" stroke="#2C2826" stroke-width="2.5" stroke-linejoin="miter"/>
+
+  <!-- ============================================================
+       ACCESORIOS SANITARIOS — BAÑO PRINCIPAL
+       ============================================================ -->
+  <!-- Inodoro -->
+  <rect x="562" y="218" width="32" height="40" rx="4" fill="#FFFFFF" stroke="#7A8A6A" stroke-width="1.2"/>
+  <ellipse cx="578" cy="246" rx="13" ry="10" fill="#EAF0EA" stroke="#7A8A6A" stroke-width="1"/>
+  <!-- Lavamanos -->
+  <rect x="607" y="156" width="35" height="28" rx="5" fill="#FFFFFF" stroke="#7A8A6A" stroke-width="1.2"/>
+  <circle cx="624" cy="168" r="4" fill="#B0C8B0" stroke="#7A8A6A" stroke-width="0.8"/>
+  <!-- Grifo lavamanos -->
+  <line x1="624" y1="157" x2="624" y2="153" stroke="#7A8A6A" stroke-width="1.5"/>
+  <line x1="620" y1="153" x2="628" y2="153" stroke="#7A8A6A" stroke-width="1.5"/>
+  <!-- Ducha -->
+  <rect x="662" y="155" width="70" height="95" rx="3" fill="#D0E8D8" stroke="#7A8A6A" stroke-width="1"/>
+  <line x1="662" y1="155" x2="732" y2="250" stroke="#7A8A6A" stroke-width="0.6" stroke-dasharray="4,4"/>
+  <circle cx="728" cy="157" r="5" fill="#FFFFFF" stroke="#7A8A6A" stroke-width="1"/>
+
+  <!-- ============================================================
+       ACCESORIOS SANITARIOS — TOILETTE
+       ============================================================ -->
+  <!-- Inodoro toilette -->
+  <rect x="750" y="191" width="28" height="38" rx="4" fill="#FFFFFF" stroke="#7A8A6A" stroke-width="1.2"/>
+  <ellipse cx="764" cy="218" rx="11" ry="9" fill="#EAF0EA" stroke="#7A8A6A" stroke-width="1"/>
+  <!-- Lavamanos toilette -->
+  <rect x="750" y="154" width="28" height="22" rx="4" fill="#FFFFFF" stroke="#7A8A6A" stroke-width="1.2"/>
+  <circle cx="764" cy="163" r="3" fill="#B0C8B0" stroke="#7A8A6A" stroke-width="0.8"/>
+
+  <!-- ============================================================
+       COCINA — OPCIÓN A (lineal, contra muro norte ESTAR)
+       ============================================================ -->
+  <!-- Mesada -->
+  <rect x="460" y="345" width="200" height="42" fill="#C8B89A" stroke="#8A6A3A" stroke-width="1.5" rx="2"/>
+  <!-- Borde interno -->
+  <rect x="463" y="348" width="194" height="36" fill="none" stroke="#A09070" stroke-width="0.8"/>
+
+  <!-- Pileta / Fregadero -->
+  <rect x="516" y="351" width="36" height="28" rx="3" fill="#B0C0D0" stroke="#8A6A3A" stroke-width="1"/>
+  <rect x="520" y="355" width="28" height="20" rx="2" fill="#A8B8C8" stroke="#7A8A9A" stroke-width="0.6"/>
+  <circle cx="534" cy="362" r="3" fill="#C8D8E0" stroke="#8A6A3A" stroke-width="0.8"/>
+  <line x1="534" y1="352" x2="534" y2="347" stroke="#8A6A3A" stroke-width="1.5"/>
+  <line x1="530" y1="347" x2="538" y2="347" stroke="#8A6A3A" stroke-width="1.5"/>
+
+  <!-- Hornallas (4 quemadores) -->
+  <circle cx="576" cy="356" r="6" fill="#D0C090" stroke="#8A6A3A" stroke-width="1"/>
+  <circle cx="576" cy="356" r="3" fill="#B09060" stroke="#8A6A3A" stroke-width="0.6"/>
+  <circle cx="592" cy="356" r="6" fill="#D0C090" stroke="#8A6A3A" stroke-width="1"/>
+  <circle cx="592" cy="356" r="3" fill="#B09060" stroke="#8A6A3A" stroke-width="0.6"/>
+  <circle cx="576" cy="372" r="6" fill="#D0C090" stroke="#8A6A3A" stroke-width="1"/>
+  <circle cx="576" cy="372" r="3" fill="#B09060" stroke="#8A6A3A" stroke-width="0.6"/>
+  <circle cx="592" cy="372" r="6" fill="#D0C090" stroke="#8A6A3A" stroke-width="1"/>
+  <circle cx="592" cy="372" r="3" fill="#B09060" stroke="#8A6A3A" stroke-width="0.6"/>
+
+  <!-- Heladera -->
+  <rect x="638" y="348" width="40" height="39" rx="3" fill="#D8D0C0" stroke="#8A6A3A" stroke-width="1.5"/>
+  <line x1="658" y1="348" x2="658" y2="387" stroke="#8A6A3A" stroke-width="0.8"/>
+  <circle cx="663" cy="366" r="2.5" fill="#8A6A3A"/>
+
+  <!-- Etiqueta COCINA -->
+  <text x="460" y="341" font-size="9" fill="#5A3A1A" font-weight="700" letter-spacing="0.5">COCINA</text>
+
+  <!-- Anotación Opción A -->
+  <line x1="560" y1="393" x2="560" y2="405" stroke="#8A6A3A" stroke-width="0.8" marker-end="url(#arrow)"/>
+  <text x="415" y="415" font-size="7.5" fill="#8A6A3A" font-style="italic">Opción A — Cocina lineal 2.86 m</text>
+
+  <!-- ============================================================
+       COCINA — OPCIÓN B (en L, fantasma)
+       ============================================================ -->
+  <!-- Brazo horizontal -->
+  <rect x="600" y="345" width="77" height="45" fill="none" stroke="#C07820" stroke-width="1.2" stroke-dasharray="6,4"/>
+  <!-- Brazo vertical -->
+  <rect x="637" y="345" width="40" height="90" fill="none" stroke="#C07820" stroke-width="1.2" stroke-dasharray="6,4"/>
+  <text x="605" y="402" font-size="7.5" fill="#C07820" font-style="italic" opacity="0.85">Opción B</text>
+
+  <!-- ============================================================
+       PUERTAS (arco de apertura + hoja de puerta)
+       ============================================================ -->
+
+  <!-- PUERTA DORMITORIO: muro sur DORM (y=330), hoja 56px, apertura interior (arriba) -->
+  <rect x="355" y="330" width="56" height="10" fill="#DCE8F0"/>
+  <line x1="411" y1="330" x2="411" y2="274" stroke="#2C2826" stroke-width="1.5"/>
+  <path d="M411,330 A56,56 0 0,0 355,330" fill="none" stroke="#2C2826" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="355" y1="330" x2="411" y2="330" stroke="#2C2826" stroke-width="1.5"/>
+
+  <!-- PUERTA CORREDOR→ESTAR: tabique y=330–340, zona corredor -->
+  <rect x="459" y="330" width="56" height="10" fill="#EDE8E0"/>
+  <line x1="459" y1="340" x2="515" y2="340" stroke="#2C2826" stroke-width="1.5"/>
+  <path d="M459,340 A56,56 0 0,0 459,284" fill="none" stroke="#2C2826" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="459" y1="340" x2="459" y2="284" stroke="#2C2826" stroke-width="1.5"/>
+
+  <!-- PUERTA BAÑO PRINCIPAL: tabique sur BAÑO (y=257→265) -->
+  <rect x="598" y="257" width="44" height="8" fill="#E8F0DC"/>
+  <line x1="598" y1="265" x2="642" y2="265" stroke="#2C2826" stroke-width="1.5"/>
+  <path d="M642,265 A44,44 0 0,0 642,309" fill="none" stroke="#2C2826" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="642" y1="265" x2="642" y2="309" stroke="#2C2826" stroke-width="1.5"/>
+
+  <!-- PUERTA TOILETTE: tabique sur toilette -->
+  <rect x="748" y="257" width="36" height="8" fill="#E8F0DC"/>
+  <line x1="748" y1="265" x2="784" y2="265" stroke="#2C2826" stroke-width="1.5"/>
+  <path d="M748,265 A36,36 0 0,0 748,301" fill="none" stroke="#2C2826" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="748" y1="265" x2="748" y2="301" stroke="#2C2826" stroke-width="1.5"/>
+
+  <!-- PUERTA VESTÍBULO EXTERIOR: muro este (x=864), apertura hacia interior -->
+  <rect x="864" y="375" width="21" height="44" fill="#F4F0E8"/>
+  <line x1="864" y1="375" x2="864" y2="419" stroke="#2C2826" stroke-width="1.5"/>
+  <path d="M864,375 A44,44 0 0,0 820,375" fill="none" stroke="#2C2826" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="864" y1="375" x2="820" y2="375" stroke="#2C2826" stroke-width="1.5"/>
+
+  <!-- ============================================================
+       MOBILIARIO — ESTAR / COMEDOR
+       ============================================================ -->
+  <!-- Mesa comedor -->
+  <rect x="210" y="408" width="110" height="70" rx="5" fill="#E8D8B8" stroke="#8A6A3A" stroke-width="1.2"/>
+  <!-- Sillas norte -->
+  <rect x="215" y="401" width="22" height="8" rx="2" fill="#C8A870" stroke="#8A6A3A" stroke-width="0.8"/>
+  <rect x="244" y="401" width="22" height="8" rx="2" fill="#C8A870" stroke="#8A6A3A" stroke-width="0.8"/>
+  <rect x="273" y="401" width="22" height="8" rx="2" fill="#C8A870" stroke="#8A6A3A" stroke-width="0.8"/>
+  <!-- Sillas sur -->
+  <rect x="215" y="478" width="22" height="8" rx="2" fill="#C8A870" stroke="#8A6A3A" stroke-width="0.8"/>
+  <rect x="244" y="478" width="22" height="8" rx="2" fill="#C8A870" stroke="#8A6A3A" stroke-width="0.8"/>
+  <rect x="273" y="478" width="22" height="8" rx="2" fill="#C8A870" stroke="#8A6A3A" stroke-width="0.8"/>
+  <!-- Sofá -->
+  <rect x="210" y="492" width="130" height="35" rx="6" fill="#D4C8B0" stroke="#8A6A3A" stroke-width="1.2"/>
+  <rect x="212" y="492" width="126" height="12" rx="4" fill="#C0B098" stroke="#8A6A3A" stroke-width="0.6"/>
+
+  <!-- ============================================================
+       MOBILIARIO — DORMITORIO
+       ============================================================ -->
+  <!-- Cama matrimonial -->
+  <rect x="200" y="160" width="160" height="130" rx="5" fill="#C8D8E8" stroke="#6A8AAA" stroke-width="1.2"/>
+  <!-- Cabecera -->
+  <rect x="200" y="160" width="160" height="22" rx="4" fill="#B0C8D8" stroke="#6A8AAA" stroke-width="0.8"/>
+  <!-- Almohadas -->
+  <ellipse cx="248" cy="174" rx="18" ry="9" fill="#E8F0F8" stroke="#6A8AAA" stroke-width="0.6"/>
+  <ellipse cx="312" cy="174" rx="18" ry="9" fill="#E8F0F8" stroke="#6A8AAA" stroke-width="0.6"/>
+  <!-- Mesas de luz -->
+  <rect x="368" y="165" width="30" height="30" rx="3" fill="#D8C8A8" stroke="#8A6A3A" stroke-width="0.8"/>
+  <rect x="200" y="165" width="30" height="30" rx="3" fill="#D8C8A8" stroke="#8A6A3A" stroke-width="0.8"/>
+  <!-- Placard -->
+  <rect x="200" y="298" width="235" height="25" fill="#C8C0B0" stroke="#8A6A3A" stroke-width="1"/>
+  <line x1="278" y1="298" x2="278" y2="323" stroke="#8A6A3A" stroke-width="0.6" stroke-dasharray="2,2"/>
+  <line x1="357" y1="298" x2="357" y2="323" stroke="#8A6A3A" stroke-width="0.6" stroke-dasharray="2,2"/>
+  <text x="284" y="313" font-size="7" fill="#5A4A3A">PLACARD</text>
+
+  <!-- ============================================================
+       ETIQUETAS DE HABITACIONES
+       ============================================================ -->
+
+  <!-- DORMITORIO -->
+  <text x="317" y="247" text-anchor="middle" font-size="12" font-weight="700" fill="#2A4A6A" letter-spacing="0.5">DORMITORIO</text>
+  <text x="317" y="264" text-anchor="middle" font-size="8.5" fill="#4A6A8A">3.60 × 3.00 m  |  10.8 m²</text>
+
+  <!-- BAÑO PRINCIPAL -->
+  <text x="648" y="197" text-anchor="middle" font-size="10" font-weight="700" fill="#3A5A3A" letter-spacing="0.3">BAÑO PRINCIPAL</text>
+  <text x="648" y="211" text-anchor="middle" font-size="8" fill="#4A6A4A">2.60 × 1.70 m  |  4.4 m²</text>
+
+  <!-- TOILETTE -->
+  <text x="766" y="196" text-anchor="middle" font-size="8" font-weight="700" fill="#3A5A3A">TOILETTE</text>
+  <text x="766" y="208" text-anchor="middle" font-size="7" fill="#4A6A4A">1.20 × 1.70 m</text>
+  <text x="766" y="219" text-anchor="middle" font-size="7" fill="#4A6A4A">2.0 m²</text>
+
+  <!-- CORREDOR -->
+  <text x="500" y="238" text-anchor="middle" font-size="9" font-weight="600" fill="#5A5040" letter-spacing="0.3">CORREDOR</text>
+  <text x="500" y="252" text-anchor="middle" font-size="7.5" fill="#7A6A5A">1.40 × 2.56 m</text>
+
+  <!-- ESTAR / COMEDOR -->
+  <text x="434" y="463" text-anchor="middle" font-size="13" font-weight="700" fill="#5A4A2A" letter-spacing="0.5">ESTAR / COMEDOR</text>
+  <text x="434" y="480" text-anchor="middle" font-size="9" fill="#7A6A4A">7.35 × 3.00 m  |  22.1 m²</text>
+
+  <!-- BALCÓN rotado -->
+  <text font-size="9" font-weight="700" fill="#3A5A2A"
+        transform="translate(133,460) rotate(-90)" text-anchor="middle">BALCÓN</text>
+  <text font-size="7.5" fill="#3A5A2A"
+        transform="translate(121,458) rotate(-90)" text-anchor="middle">1.07 m | 3.22 m²</text>
+
+  <!-- VESTÍBULO ENTRADA -->
+  <text x="774" y="380" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5A4A2A">VESTÍBULO</text>
+  <text x="774" y="394" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5A4A2A">ENTRADA</text>
+  <text x="774" y="408" text-anchor="middle" font-size="8" fill="#7A6A4A">2.86 × 1.70 m</text>
+
+  <!-- MURO ESTRUCTURAL label (rotado) -->
+  <text font-size="7.5" fill="#5A4A2A"
+        transform="translate(840,310) rotate(90)" text-anchor="middle">MURO PERIMETRAL ESTRUCTURAL</text>
+
+  <!-- ============================================================
+       COTAS SUPERIORES
+       ============================================================ -->
+  <!-- Línea total ancho x=170–885 en y=118 -->
+  <line x1="170" y1="118" x2="885" y2="118" stroke="#606060" stroke-width="0.9"
+        marker-start="url(#arrow_r)" marker-end="url(#arrow)"/>
+  <!-- Extensiones verticales -->
+  <line x1="170" y1="118" x2="170" y2="132" stroke="#606060" stroke-width="0.6" stroke-dasharray="2,2"/>
+  <line x1="885" y1="118" x2="885" y2="132" stroke="#606060" stroke-width="0.6" stroke-dasharray="2,2"/>
+  <text x="527" y="114" text-anchor="middle" font-size="8.5" fill="#303030" font-weight="700">10.21 m</text>
+
+  <!-- Sub-cotas y=107 -->
+  <line x1="170" y1="107" x2="443" y2="107" stroke="#606060" stroke-width="0.8"
+        marker-start="url(#arrow_r)" marker-end="url(#arrow)"/>
+  <line x1="443" y1="107" x2="549" y2="107" stroke="#606060" stroke-width="0.8"
+        marker-start="url(#arrow_r)" marker-end="url(#arrow)"/>
+  <line x1="549" y1="107" x2="739" y2="107" stroke="#606060" stroke-width="0.8"
+        marker-start="url(#arrow_r)" marker-end="url(#arrow)"/>
+  <line x1="739" y1="107" x2="786" y2="107" stroke="#606060" stroke-width="0.8"
+        marker-start="url(#arrow_r)" marker-end="url(#arrow)"/>
+
+  <!-- Extensiones sub-cotas -->
+  <line x1="443" y1="107" x2="443" y2="132" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <line x1="549" y1="107" x2="549" y2="132" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <line x1="739" y1="107" x2="739" y2="132" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <line x1="786" y1="107" x2="786" y2="132" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+
+  <!-- Textos sub-cotas -->
+  <text x="306" y="104" text-anchor="middle" font-size="7.5" fill="#404040">3.60 m</text>
+  <text x="496" y="104" text-anchor="middle" font-size="7.5" fill="#404040">1.40 m</text>
+  <text x="644" y="104" text-anchor="middle" font-size="7.5" fill="#404040">2.60 m</text>
+  <text x="762" y="104" text-anchor="middle" font-size="7.5" fill="#404040">1.20 m</text>
+
+  <!-- ============================================================
+       COTAS INFERIORES (ESTAR)
+       ============================================================ -->
+  <line x1="191" y1="563" x2="677" y2="563" stroke="#606060" stroke-width="0.9"
+        marker-start="url(#arrow_r)" marker-end="url(#arrow)"/>
+  <line x1="191" y1="550" x2="191" y2="566" stroke="#606060" stroke-width="0.6" stroke-dasharray="2,2"/>
+  <line x1="677" y1="550" x2="677" y2="566" stroke="#606060" stroke-width="0.6" stroke-dasharray="2,2"/>
+  <text x="434" y="574" text-anchor="middle" font-size="7.5" fill="#404040" font-weight="600">ESTAR 7.35 m</text>
+
+  <!-- Cota BALCÓN inferior -->
+  <line x1="95" y1="563" x2="166" y2="563" stroke="#606060" stroke-width="0.8"
+        marker-start="url(#arrow_r)" marker-end="url(#arrow)"/>
+  <line x1="95" y1="550" x2="95" y2="566" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <line x1="166" y1="550" x2="166" y2="566" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text x="130" y="574" text-anchor="middle" font-size="7.5" fill="#404040">1.07 m</text>
+
+  <!-- ============================================================
+       COTAS LATERALES
+       ============================================================ -->
+  <!-- DORM profundidad: y=151 a y=330 (lado izquierdo) -->
+  <line x1="158" y1="151" x2="158" y2="330" stroke="#606060" stroke-width="0.8"
+        marker-start="url(#arrow_r)" marker-end="url(#arrow)"/>
+  <line x1="158" y1="151" x2="172" y2="151" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <line x1="158" y1="330" x2="172" y2="330" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text font-size="7.5" fill="#404040"
+        transform="translate(152,246) rotate(-90)" text-anchor="middle">3.00 m</text>
+
+  <!-- ESTAR profundidad: y=340 a y=530 -->
+  <line x1="82" y1="340" x2="82" y2="530" stroke="#606060" stroke-width="0.8"
+        marker-start="url(#arrow_r)" marker-end="url(#arrow)"/>
+  <line x1="82" y1="340" x2="96" y2="340" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <line x1="82" y1="530" x2="96" y2="530" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text font-size="7.5" fill="#404040"
+        transform="translate(76,440) rotate(-90)" text-anchor="middle">3.00 m</text>
+
+  <!-- Vestíbulo profundidad: y=340 a y=439 (lado derecho) -->
+  <line x1="898" y1="340" x2="898" y2="439" stroke="#606060" stroke-width="0.8"
+        marker-start="url(#arrow_r)" marker-end="url(#arrow)"/>
+  <line x1="885" y1="340" x2="900" y2="340" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <line x1="885" y1="439" x2="900" y2="439" stroke="#606060" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text font-size="7.5" fill="#404040"
+        transform="translate(905,393) rotate(90)" text-anchor="middle">1.70 m</text>
+
+  <!-- ============================================================
+       BARRA DE TÍTULO
+       ============================================================ -->
+  <rect x="0" y="0" width="1100" height="50" fill="#2C2826"/>
+  <text x="22" y="19" font-size="9.5" fill="#C8B89A" letter-spacing="3" font-weight="300">BAJO LAS LOMITAS</text>
+  <text x="22" y="38" font-size="14" fill="#FFFFFF" font-weight="700" letter-spacing="1">DEPTO 102 — PISO 1 — PLANTA ARQUITECTÓNICA v3</text>
+  <text x="695" y="19" font-size="8.5" fill="#C0B0A0">Sup. cubierta: ≈ 47.5 m²  |  Sup. semicubierta: ≈ 3.2 m²  |  Total: ≈ 50.7 m²</text>
+  <text x="695" y="35" font-size="8.5" fill="#908070">Escala 1:100 (70 px = 1 m)  |  Muros ext. 0.30 m  |  Tabiques 0.12 m</text>
+  <!-- Línea decorativa bajo título -->
+  <rect x="0" y="50" width="1100" height="2" fill="#C8B89A" opacity="0.5"/>
+
+  <!-- ============================================================
+       ROSA DE LOS VIENTOS
+       ============================================================ -->
+  <g transform="translate(980,660)">
+    <circle cx="0" cy="0" r="28" fill="#F0EBE0" stroke="#8A7A6A" stroke-width="1.2"/>
+    <!-- Flecha norte (oscura) -->
+    <polygon points="0,-26 -7,0 7,0" fill="#2C2826"/>
+    <!-- Flecha sur (clara) -->
+    <polygon points="0,26 -7,0 7,0" fill="#C8C0B0"/>
+    <!-- Flechas este/oeste -->
+    <polygon points="26,0 0,-7 0,7" fill="#C8C0B0"/>
+    <polygon points="-26,0 0,-7 0,7" fill="#C8C0B0"/>
+    <!-- Punto central -->
+    <circle cx="0" cy="0" r="3" fill="#2C2826"/>
+    <!-- Letras cardinales -->
+    <text x="0" y="-32" text-anchor="middle" font-size="11" font-weight="700" fill="#2C2826">N</text>
+    <text x="0" y="43" text-anchor="middle" font-size="8" fill="#6A5A4A">S</text>
+    <text x="38" y="4" text-anchor="middle" font-size="8" fill="#6A5A4A">E</text>
+    <text x="-38" y="4" text-anchor="middle" font-size="8" fill="#6A5A4A">O</text>
+  </g>
+
+  <!-- ============================================================
+       BARRA DE ESCALA
+       ============================================================ -->
+  <g transform="translate(820,720)">
+    <text x="0" y="-8" font-size="8" fill="#4A3A2A" font-weight="600">ESCALA GRÁFICA 1:100</text>
+    <!-- Segmentos alternos blanco/negro -->
+    <rect x="0"   y="0" width="70" height="9" fill="#2C2826"/>
+    <rect x="70"  y="0" width="70" height="9" fill="#F8F5EE" stroke="#2C2826" stroke-width="0.8"/>
+    <rect x="140" y="0" width="70" height="9" fill="#2C2826"/>
+    <rect x="210" y="0" width="70" height="9" fill="#F8F5EE" stroke="#2C2826" stroke-width="0.8"/>
+    <!-- Marco exterior -->
+    <rect x="0" y="0" width="280" height="9" fill="none" stroke="#2C2826" stroke-width="0.8"/>
+    <!-- Marcas de texto -->
+    <text x="0"   y="20" text-anchor="middle" font-size="8" fill="#2C2826">0</text>
+    <text x="70"  y="20" text-anchor="middle" font-size="8" fill="#2C2826">1 m</text>
+    <text x="140" y="20" text-anchor="middle" font-size="8" fill="#2C2826">2 m</text>
+    <text x="210" y="20" text-anchor="middle" font-size="8" fill="#2C2826">3 m</text>
+    <text x="280" y="20" text-anchor="middle" font-size="8" fill="#2C2826">4 m</text>
+  </g>
+
+  <!-- ============================================================
+       CARTUCHO / SELLO DE PROYECTO
+       ============================================================ -->
+  <rect x="20" y="752" width="270" height="58" fill="#FFFFFF" stroke="#8A7A6A" stroke-width="1" rx="2"/>
+  <rect x="20" y="752" width="270" height="14" fill="#2C2826" rx="2"/>
+  <text x="155" y="763" text-anchor="middle" font-size="8.5" fill="#FFFFFF" font-weight="700" letter-spacing="1">BAJO LAS LOMITAS — CARTUCHO</text>
+  <text x="28" y="779" font-size="7.5" fill="#2C2826">Proyecto:   Habitad | Daro Design</text>
+  <text x="28" y="790" font-size="7.5" fill="#2C2826">Unidad:     Depto 102 — Piso 1</text>
+  <text x="28" y="801" font-size="7.5" fill="#2C2826">Revisión:   v3 — Espesores de muro correctos</text>
+  <text x="28" y="812" font-size="7.5" fill="#606060">Fecha:      Mayo 2026  |  Escala 1:100</text>
+
+  <!-- ============================================================
+       LEYENDA DE COLORES Y PATRONES
+       ============================================================ -->
+  <rect x="310" y="590" width="220" height="210" fill="#FFFFFF" stroke="#8A7A6A" stroke-width="0.8" rx="3"/>
+  <rect x="310" y="590" width="220" height="14" fill="#2C2826" rx="3"/>
+  <text x="420" y="601" text-anchor="middle" font-size="8" fill="#FFFFFF" font-weight="700" letter-spacing="1">LEYENDA DE LOCALES</text>
+
+  <rect x="318" y="612" width="16" height="10" fill="#DCE8F0" stroke="#6A8AAA" stroke-width="0.8"/>
+  <text x="340" y="621" font-size="8" fill="#2C2826">Dormitorio</text>
+
+  <rect x="318" y="628" width="16" height="10" fill="#F0EAD8" stroke="#8A6A3A" stroke-width="0.8"/>
+  <text x="340" y="637" font-size="8" fill="#2C2826">Estar / Comedor</text>
+
+  <rect x="318" y="644" width="16" height="10" fill="#E8F0DC" stroke="#7A8A6A" stroke-width="0.8"/>
+  <text x="340" y="653" font-size="8" fill="#2C2826">Baño / Toilette</text>
+
+  <rect x="318" y="660" width="16" height="10" fill="#EDE8E0" stroke="#8A7A6A" stroke-width="0.8"/>
+  <text x="340" y="669" font-size="8" fill="#2C2826">Corredor / Circulación</text>
+
+  <rect x="318" y="676" width="16" height="10" fill="#E0E8D0" stroke="#9AAA7A" stroke-width="0.8"/>
+  <text x="340" y="685" font-size="8" fill="#2C2826">Balcón semicubierto</text>
+
+  <rect x="318" y="692" width="16" height="10" fill="#F4F0E8" stroke="#8A7A6A" stroke-width="0.8"/>
+  <text x="340" y="701" font-size="8" fill="#2C2826">Vestíbulo entrada</text>
+
+  <rect x="318" y="708" width="16" height="10" fill="#C8B89A" stroke="#8A6A3A" stroke-width="0.8"/>
+  <text x="340" y="717" font-size="8" fill="#2C2826">Cocina — Opción A</text>
+
+  <rect x="318" y="724" width="16" height="10" fill="none" stroke="#C07820" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="340" y="733" font-size="8" fill="#2C2826">Cocina — Opción B (alternativa)</text>
+
+  <rect x="318" y="740" width="16" height="10" fill="url(#wall_ext)"/>
+  <text x="340" y="749" font-size="8" fill="#2C2826">Muro exterior — 0.30 m</text>
+
+  <rect x="318" y="756" width="16" height="10" fill="url(#wall_int)"/>
+  <text x="340" y="765" font-size="8" fill="#2C2826">Tabique interior — 0.12 m</text>
+
+  <rect x="318" y="772" width="16" height="10" fill="url(#wall_struct)"/>
+  <text x="340" y="781" font-size="8" fill="#2C2826">Muro estructural perimetral</text>
+
+  <!-- ============================================================
+       NOTAS GENERALES
+       ============================================================ -->
+  <rect x="545" y="590" width="265" height="100" fill="#FFFFF8" stroke="#C8B89A" stroke-width="0.8" rx="2"/>
+  <rect x="545" y="590" width="265" height="13" fill="#C8B89A" rx="2"/>
+  <text x="555" y="600" font-size="8" fill="#2C2826" font-weight="700">NOTAS GENERALES</text>
+  <text x="553" y="616" font-size="7.5" fill="#4A3A2A">1. Plano esquemático — verificar con relevamiento in situ.</text>
+  <text x="553" y="628" font-size="7.5" fill="#4A3A2A">2. Cocina no construida — se indican dos opciones posibles.</text>
+  <text x="553" y="640" font-size="7.5" fill="#4A3A2A">3. Zona est. derecha (x=786–885) no intervenible.</text>
+  <text x="553" y="652" font-size="7.5" fill="#4A3A2A">4. Cotas interiores libres (descontados muros).</text>
+  <text x="553" y="664" font-size="7.5" fill="#4A3A2A">5. Norte orientativo — confirmar con catastro.</text>
+  <text x="553" y="676" font-size="7.5" fill="#4A3A2A">6. Superficie total ≈ 50.7 m² (cubierta + semicubierta).</text>
+  <text x="553" y="688" font-size="7.5" fill="#4A3A2A">7. Paleta Nordic / Wabi-sabi — versión v3.</text>
+
+  <!-- ============================================================
+       ANOTACIONES DE ORIENTACIÓN
+       ============================================================ -->
+  <text x="527" y="94" text-anchor="middle" font-size="8" fill="#8A6A3A" font-style="italic">Fachada norte — acceso peatonal</text>
+  <text x="143" y="576" text-anchor="middle" font-size="7.5" fill="#4A6A3A" font-style="italic">Exterior</text>
+
+  <!-- ============================================================
+       BORDE INFERIOR
+       ============================================================ -->
+  <rect x="0" y="817" width="1100" height="3" fill="#C8B89A" opacity="0.5"/>
+
+</svg>
