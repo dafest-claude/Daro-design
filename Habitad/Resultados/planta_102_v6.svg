@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="720" viewBox="0 0 980 720" font-family="'Helvetica Neue',Arial,sans-serif">
+<rect width="980" height="720" fill="#F5F3EE"/>
+<rect x="0" y="0" width="980" height="44" fill="#1C1C1C"/>
+<text x="16" y="15" font-size="8" fill="#888" letter-spacing="2">BAJO LAS LOMITAS — DEPTO 102</text>
+<text x="16" y="33" font-size="13" font-weight="bold" fill="#FFF">PLANTA ARQUITECTÓNICA  ·  v6</text>
+<text x="964" y="26" font-size="8" fill="#888" text-anchor="end">Escala 1:100  ·  70 px = 1 m</text>
+
+<!-- ===== ROOM FILLS ===== -->
+<!-- DORM: x=170-422, y=130-340 (full wet zone height) -->
+<rect x="185" y="150" width="237" height="183" fill="#FFFFFF"/>
+
+<!-- CORR: x=464-562, y=130-340 (full height, no horizontal subdivision) -->
+<rect x="464" y="150" width="91" height="183" fill="#FFFFFF"/>
+
+<!-- BAÑO: x=562-744, y=130-340 (full height) -->
+<rect x="569" y="150" width="168" height="183" fill="#FFFFFF"/>
+
+<!-- TOIL: x=744-828, y=130-340 (full height - stops at structural zone) -->
+<rect x="751" y="150" width="70" height="183" fill="#FFFFFF"/>
+
+<!-- ESTAR/COMEDOR: x=170-685, y=355-535 (below ESTAR divider, above bottom wall) -->
+<rect x="185" y="355" width="493" height="180" fill="#FFFFFF"/>
+
+<!-- BALCÓN: x=95-170, y=340-550 -->
+<rect x="110" y="340" width="60" height="195" fill="#F0F0EE"/>
+
+<!-- VESTÍBULO: x=685-870, y=340-444 -->
+<rect x="685" y="340" width="185" height="104" fill="#FAFAF8"/>
+
+<!-- ===== EXTERIOR WALLS (15px) ===== -->
+<!-- Top wall: x=170-885, y=130-150 (20px based on analysis) -->
+<rect x="170" y="130" width="715" height="20" fill="#111111"/>
+
+<!-- Left wall DORM: x=170-185, y=150-340 -->
+<rect x="170" y="150" width="15" height="190" fill="#111111"/>
+
+<!-- Balcony left wall: x=95-110, y=340-550 -->
+<rect x="95" y="340" width="15" height="210" fill="#111111"/>
+
+<!-- Bottom wall: x=95-685, y=535-550 -->
+<rect x="95" y="535" width="590" height="15" fill="#111111"/>
+
+<!-- Vestíbulo bottom wall: x=685-885, y=444-459 -->
+<rect x="685" y="444" width="200" height="15" fill="#111111"/>
+
+<!-- Right wall (vestíbulo): x=870-885, y=340-459 -->
+<rect x="870" y="340" width="15" height="119" fill="#111111"/>
+
+<!-- Structural zone: x=828-885, y=130-340 (solid) -->
+<rect x="828" y="130" width="57" height="210" fill="#111111"/>
+
+<!-- 0.60m element (placard+muro): x=422-464, y=130-340 (solid) -->
+<rect x="422" y="130" width="42" height="210" fill="#111111"/>
+
+<!-- ===== INTERIOR PARTITION WALLS (7px) ===== -->
+<!-- BAÑO left wall: x=562-569, y=150-340 -->
+<rect x="562" y="150" width="7" height="183" fill="#111111"/>
+
+<!-- TOIL left wall: x=744-751, y=150-340 -->
+<rect x="744" y="150" width="7" height="183" fill="#111111"/>
+
+<!-- ESTAR divider wall: x=170-685, y=340-355 (15px - corrected from 7px) -->
+<rect x="95" y="340" width="590" height="15" fill="#111111"/>
+
+<!-- DORM left partition at ESTAR level: x=170-185, y=340-355 -->
+<!-- (already covered by ESTAR divider) -->
+
+<!-- Vestíbulo left wall: x=685-692, y=340-459 -->
+<rect x="685" y="340" width="7" height="119" fill="#111111"/>
+
+<!-- Balcony right wall (DORM left at y>340): extends as thin partition -->
+<rect x="170" y="355" width="15" height="180" fill="#111111"/>
+
+<!-- ===== POLYGON OUTLINE ===== -->
+<polygon points="170,130 885,130 885,459 685,459 685,550 95,550 95,340 170,340" 
+         fill="none" stroke="#111111" stroke-width="2"/>
+
+<!-- ===== DOORS ===== -->
+<!-- BAÑO door: opens into CORR -->
+<line x1="562" y1="246" x2="611" y2="246" stroke="#111111" stroke-width="1.5"/>
+<path d="M 611,246 A 49,49 0 0,0 562,295" fill="none" stroke="#666" stroke-width="0.8" stroke-dasharray="4,2"/>
+
+<!-- TOIL door: opens into BAÑO -->
+<line x1="744" y1="246" x2="793" y2="246" stroke="#111111" stroke-width="1.5"/>
+<path d="M 793,246 A 49,49 0 0,1 744,295" fill="none" stroke="#666" stroke-width="0.8" stroke-dasharray="4,2"/>
+
+<!-- DORM door: opens into ESTAR -->
+<line x1="422" y1="348" x2="464" y2="348" stroke="#111111" stroke-width="1.5"/>
+<path d="M 422,348 A 42,42 0 0,0 464,306" fill="none" stroke="#666" stroke-width="0.8" stroke-dasharray="4,2"/>
+
+<!-- Entry door (vestíbulo): right side -->
+<line x1="870" y1="380" x2="870" y2="443" stroke="#111111" stroke-width="1.5"/>
+<path d="M 870,443 A 63,63 0 0,1 807,443" fill="none" stroke="#666" stroke-width="0.8" stroke-dasharray="4,2"/>
+<text x="895" y="415" font-size="18" fill="#111111" text-anchor="middle">⇐</text>
+
+<!-- ===== ROOM LABELS ===== -->
+<text x="296" y="230" font-size="10" fill="#111111" text-anchor="middle" font-weight="bold">DORMITORIO</text>
+<text x="511" y="200" font-size="8" fill="#111111" text-anchor="middle">CORREDOR</text>
+<text x="651" y="200" font-size="9" fill="#111111" text-anchor="middle" font-weight="bold">BAÑO</text>
+<text x="784" y="200" font-size="9" fill="#111111" text-anchor="middle" font-weight="bold">TOIL</text>
+<text x="427" y="455" font-size="11" fill="#111111" text-anchor="middle" font-weight="bold">ESTAR  /  COMEDOR</text>
+<text x="122" y="460" font-size="7" fill="#111111" text-anchor="middle" font-weight="bold" transform="rotate(-90,122,460)">BALCÓN</text>
+<text x="775" y="397" font-size="9" fill="#111111" text-anchor="middle">VESTÍBULO</text>
+
+<!-- ===== DIMENSION LINES ===== -->
+<!-- Horizontal dims at top (y=108) -->
+<line x1="170" y1="108" x2="885" y2="108" stroke="#444" stroke-width="0.7"/>
+<line x1="170" y1="104" x2="170" y2="112" stroke="#444" stroke-width="0.7"/>
+<line x1="885" y1="104" x2="885" y2="112" stroke="#444" stroke-width="0.7"/>
+<text x="527" y="104" font-size="7.5" fill="#444" text-anchor="middle">10.21 m</text>
+
+<!-- Individual horizontal dims at y=90 -->
+<line x1="170" y1="90" x2="422" y2="90" stroke="#444" stroke-width="0.7"/>
+<line x1="170" y1="86" x2="170" y2="94" stroke="#444" stroke-width="0.7"/>
+<line x1="422" y1="86" x2="422" y2="94" stroke="#444" stroke-width="0.7"/>
+<line x1="170" y1="130" x2="170" y2="90" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<line x1="422" y1="130" x2="422" y2="90" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="296" y="86" font-size="7.5" fill="#444" text-anchor="middle">3.60 m</text>
+
+<line x1="422" y1="90" x2="464" y2="90" stroke="#444" stroke-width="0.7"/>
+<line x1="464" y1="86" x2="464" y2="94" stroke="#444" stroke-width="0.7"/>
+<line x1="464" y1="130" x2="464" y2="90" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="443" y="86" font-size="7.5" fill="#444" text-anchor="middle">.60</text>
+
+<line x1="464" y1="90" x2="562" y2="90" stroke="#444" stroke-width="0.7"/>
+<line x1="562" y1="86" x2="562" y2="94" stroke="#444" stroke-width="0.7"/>
+<line x1="562" y1="130" x2="562" y2="90" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="513" y="86" font-size="7.5" fill="#444" text-anchor="middle">1.40 m</text>
+
+<line x1="562" y1="90" x2="744" y2="90" stroke="#444" stroke-width="0.7"/>
+<line x1="744" y1="86" x2="744" y2="94" stroke="#444" stroke-width="0.7"/>
+<line x1="744" y1="130" x2="744" y2="90" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="653" y="86" font-size="7.5" fill="#444" text-anchor="middle">2.60 m</text>
+
+<line x1="744" y1="90" x2="828" y2="90" stroke="#444" stroke-width="0.7"/>
+<line x1="828" y1="86" x2="828" y2="94" stroke="#444" stroke-width="0.7"/>
+<line x1="828" y1="130" x2="828" y2="90" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="786" y="86" font-size="7.5" fill="#444" text-anchor="middle">1.20 m</text>
+
+<!-- Vertical dims (right side) -->
+<line x1="920" y1="130" x2="920" y2="340" stroke="#444" stroke-width="0.7"/>
+<line x1="916" y1="130" x2="924" y2="130" stroke="#444" stroke-width="0.7"/>
+<line x1="916" y1="340" x2="924" y2="340" stroke="#444" stroke-width="0.7"/>
+<line x1="885" y1="130" x2="920" y2="130" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<line x1="885" y1="340" x2="920" y2="340" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="940" y="238" font-size="7.5" fill="#444" text-anchor="middle" transform="rotate(90,940,238)">3.00 m</text>
+
+<line x1="920" y1="340" x2="920" y2="459" stroke="#444" stroke-width="0.7"/>
+<line x1="916" y1="459" x2="924" y2="459" stroke="#444" stroke-width="0.7"/>
+<line x1="885" y1="459" x2="920" y2="459" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="940" y="402" font-size="7.5" fill="#444" text-anchor="middle" transform="rotate(90,940,402)">1.70 m</text>
+
+<!-- ESTAR vertical dim (left side) -->
+<line x1="65" y1="340" x2="65" y2="550" stroke="#444" stroke-width="0.7"/>
+<line x1="61" y1="340" x2="69" y2="340" stroke="#444" stroke-width="0.7"/>
+<line x1="61" y1="550" x2="69" y2="550" stroke="#444" stroke-width="0.7"/>
+<line x1="95" y1="340" x2="65" y2="340" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<line x1="95" y1="550" x2="65" y2="550" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="48" y="447" font-size="7.5" fill="#444" text-anchor="middle" transform="rotate(90,48,447)">3.00 m</text>
+
+<!-- ESTAR horizontal dim (bottom) -->
+<line x1="170" y1="572" x2="685" y2="572" stroke="#444" stroke-width="0.7"/>
+<line x1="170" y1="568" x2="170" y2="576" stroke="#444" stroke-width="0.7"/>
+<line x1="685" y1="568" x2="685" y2="576" stroke="#444" stroke-width="0.7"/>
+<line x1="170" y1="550" x2="170" y2="572" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<line x1="685" y1="550" x2="685" y2="572" stroke="#444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="427" y="582" font-size="7.5" fill="#444" text-anchor="middle">7.35 m</text>
+
+</svg>
