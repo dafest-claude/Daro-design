@@ -19,14 +19,14 @@
 <!-- ══ FILLS DE AMBIENTES ══ -->
 <!-- DORM -->
 <rect x="185" y="150" width="237" height="183" fill="white" opacity="0.78"/>
-<!-- CORR  — 1.70 m de fondo (hasta y=249) -->
-<rect x="464" y="150" width="98"  height="92"  fill="white" opacity="0.78"/>
-<!-- BAÑO  — 1.70 m de fondo -->
-<rect x="569" y="150" width="168" height="92"  fill="white" opacity="0.78"/>
-<!-- TOIL  — 1.70 m de fondo -->
+<!-- CORR  — 3.00 m de fondo (hasta y=340) -->
+<rect x="464" y="150" width="98"  height="190" fill="white" opacity="0.78"/>
+<!-- BAÑO  — 3.00 m de fondo (hasta y=340) -->
+<rect x="569" y="150" width="175" height="190" fill="white" opacity="0.78"/>
+<!-- TOIL  — 1.70 m de fondo (hasta y=249) -->
 <rect x="751" y="150" width="70"  height="92"  fill="white" opacity="0.78"/>
-<!-- Zona servicio/pasaje bajo CORR+BAÑO+TOIL (y=249-340, x=464-828) -->
-<rect x="464" y="256" width="357" height="77"  fill="#F2F2F0" opacity="0.70"/>
+<!-- Zona acceso bajo TOIL (y=256-340, x=751-821) -->
+<rect x="751" y="256" width="70"  height="77"  fill="#F2F2F0" opacity="0.70"/>
 <!-- ESTAR -->
 <rect x="185" y="355" width="493" height="180" fill="white" opacity="0.78"/>
 <!-- BALCÓN -->
@@ -60,12 +60,14 @@
 <rect x="828" y="130" width="57"  height="210" fill="#111"/>
 
 <!-- ══ TABIQUES INTERIORES ══ -->
-<!-- Pared inferior zona húmeda (a 1.70 m): x=464-828, y=249-256 -->
-<rect x="464" y="249" width="364" height="7"   fill="#111"/>
-<!-- BAÑO pared izq: x=562-569, y=150-256 -->
-<rect x="562" y="150" width="7"   height="106" fill="#111"/>
-<!-- TOIL pared izq: x=744-751, y=150-256 -->
-<rect x="744" y="150" width="7"   height="106" fill="#111"/>
+<!-- Pared inferior TOIL (a 1.70 m): x=744-828, y=249-256 -->
+<rect x="744" y="249" width="84"  height="7"   fill="#111"/>
+<!-- BAÑO pared izq: x=562-569, y=150-340 (pared completa) -->
+<rect x="562" y="150" width="7"   height="190" fill="#111"/>
+<!-- TOIL pared izq: x=744-751, y=150-340 (separa BAÑO de zona TOIL) -->
+<rect x="744" y="150" width="7"   height="190" fill="#111"/>
+<!-- Bañera en BAÑO (1.70m largo, contra pared norte): x=569-688, y=150-220 -->
+<rect x="569" y="150" width="119" height="56"  fill="none" stroke="#555" stroke-width="1.0"/>
 <!-- Divisoria ESTAR (15 px): y=340-355, x=95-685 -->
 <rect x="95"  y="340" width="590" height="15"  fill="#111"/>
 <!-- Muro DORM-ESTAR: x=170-185, y=355-535 -->
@@ -78,12 +80,12 @@
          fill="none" stroke="#111" stroke-width="2.5"/>
 
 <!-- ══ PUERTAS ══ -->
-<!-- BAÑO: abre hacia zona servicio (sur) -->
-<line x1="569" y1="249" x2="618" y2="249" stroke="#111" stroke-width="1.5"/>
-<path d="M 618,249 A 49,49 0 0,0 569,298" fill="none" stroke="#555" stroke-width="0.9" stroke-dasharray="3,2"/>
-<!-- TOIL: abre hacia zona servicio (sur) -->
-<line x1="744" y1="249" x2="793" y2="249" stroke="#111" stroke-width="1.5"/>
-<path d="M 793,249 A 49,49 0 0,1 744,298" fill="none" stroke="#555" stroke-width="0.9" stroke-dasharray="3,2"/>
+<!-- BAÑO: puerta en pared oeste, abre hacia CORR -->
+<line x1="562" y1="210" x2="506" y2="210" stroke="#111" stroke-width="1.5"/>
+<path d="M 506,210 A 56,56 0 0,1 562,266" fill="none" stroke="#555" stroke-width="0.9" stroke-dasharray="3,2"/>
+<!-- TOIL: abre hacia zona acceso (sur) -->
+<line x1="751" y1="249" x2="800" y2="249" stroke="#111" stroke-width="1.5"/>
+<path d="M 800,249 A 49,49 0 0,1 751,298" fill="none" stroke="#555" stroke-width="0.9" stroke-dasharray="3,2"/>
 <!-- DORM: abre hacia ESTAR (sur) -->
 <line x1="240" y1="348" x2="282" y2="348" stroke="#111" stroke-width="1.5"/>
 <path d="M 240,348 A 42,42 0 0,1 240,306" fill="none" stroke="#555" stroke-width="0.9" stroke-dasharray="3,2"/>
@@ -94,10 +96,10 @@
 
 <!-- ══ ETIQUETAS ══ -->
 <text x="296" y="230" font-size="10" fill="#111" text-anchor="middle" font-weight="bold">DORMITORIO</text>
-<text x="511" y="197" font-size="8"  fill="#111" text-anchor="middle">CORREDOR</text>
-<text x="651" y="196" font-size="9"  fill="#111" text-anchor="middle" font-weight="bold">BAÑO</text>
-<text x="784" y="196" font-size="9"  fill="#111" text-anchor="middle" font-weight="bold">TOIL</text>
-<text x="630" y="303" font-size="7"  fill="#666" text-anchor="middle" font-style="italic">zona servicio</text>
+<text x="511" y="248" font-size="8"  fill="#111" text-anchor="middle">CORREDOR</text>
+<text x="651" y="248" font-size="9"  fill="#111" text-anchor="middle" font-weight="bold">BAÑO</text>
+<text x="786" y="196" font-size="9"  fill="#111" text-anchor="middle" font-weight="bold">TOIL</text>
+<text x="786" y="303" font-size="7"  fill="#666" text-anchor="middle" font-style="italic">acc.</text>
 <text x="427" y="455" font-size="11" fill="#111" text-anchor="middle" font-weight="bold">ESTAR  /  COMEDOR</text>
 <text x="120" y="460" font-size="7"  fill="#111" text-anchor="middle" font-weight="bold" transform="rotate(-90,120,460)">BALCÓN</text>
 <text x="773" y="400" font-size="9"  fill="#111" text-anchor="middle">VESTÍBULO</text>
