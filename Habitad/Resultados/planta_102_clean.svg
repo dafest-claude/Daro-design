@@ -12,7 +12,7 @@
 <!-- Header -->
 <rect x="0" y="0" width="980" height="44" fill="#1C1C1C"/>
 <text x="16" y="15" font-size="8" fill="#888" letter-spacing="2">BAJO LAS LOMITAS — DEPTO 102</text>
-<text x="16" y="33" font-size="13" font-weight="bold" fill="#FFF">PLANTA ARQUITECTÓNICA  ·  LIMPIA</text>
+<text x="16" y="33" font-size="13" font-weight="bold" fill="#FFF">PLANTA ARQUITECTÓNICA  ·  CON COCINA</text>
 <text x="964" y="26" font-size="8" fill="#888" text-anchor="end">Escala 1:100  ·  70 px = 1 m</text>
 
 <!-- ══ CONTORNO EXTERIOR ══ -->
@@ -26,12 +26,15 @@
 <!-- Línea divisoria pasillo / BAÑO (x=450) — 1.40m después -->
 <line x1="450" y1="100" x2="450" y2="620" stroke="#333" stroke-width="2"/>
 
-<!-- Línea divisoria BAÑO / TOIL (x="682) — 2.60m después -->
+<!-- Línea divisoria BAÑO / TOIL (x=682) — 2.60m después -->
 <line x1="682" y1="100" x2="682" y2="620" stroke="#333" stroke-width="2"/>
 
 <!-- ══ DIVISIONES VERTICALES ══ -->
 <!-- Divisoria BALCÓN / ESTAR COMEDOR (y=310) — 3.00m de profundidad -->
 <line x1="100" y1="310" x2="815" y2="310" stroke="#333" stroke-width="2"/>
+
+<!-- Divisoria COCINA / ESTAR COMEDOR (x=205) — 1.50m ancho cocina -->
+<line x1="205" y1="360" x2="205" y2="510" stroke="#FF6F00" stroke-width="2"/>
 
 <!-- ══ FILLS DE AMBIENTES ══ -->
 <!-- DORMITORIO -->
@@ -49,11 +52,36 @@
 <!-- BALCÓN -->
 <rect x="100" y="310" width="715" height="50" fill="#F0F4C3" opacity="0.5"/>
 
-<!-- ESTAR COMEDOR (con zona cocina integrada) -->
-<rect x="100" y="360" width="515" height="260" fill="#FFE0B2" opacity="0.5"/>
+<!-- COCINA (1.50m × 1.50m) -->
+<rect x="100" y="360" width="105" height="150" fill="#FFE0B2" opacity="0.7"/>
 
-<!-- COCINA (integrada en ESTAR COMEDOR, lado izquierdo) -->
-<rect x="100" y="360" width="150" height="150" fill="#FFC107" opacity="0.3" stroke="#FF9800" stroke-width="1" stroke-dasharray="3,3"/>
+<!-- ESTAR COMEDOR (sin cocina) -->
+<rect x="205" y="360" width="410" height="260" fill="#FFE0B2" opacity="0.5"/>
+
+<!-- ══ ELEMENTOS DE COCINA ══ -->
+<!-- Barra de cocina (línea de separación visual hacia el estar) -->
+<line x1="205" y1="380" x2="205" y2="510" stroke="#FF6F00" stroke-width="1.5"/>
+
+<!-- Heladera (0.70m ancho) — lado derecho interior cocina -->
+<rect x="157" y="365" width="49" height="35" fill="none" stroke="#D84315" stroke-width="1.5"/>
+<text x="181" y="387" font-size="8" fill="#D84315" text-anchor="middle">HELADERA</text>
+
+<!-- Estufa (0.50m ancho) — centro -->
+<rect x="120" y="365" width="35" height="35" fill="none" stroke="#D84315" stroke-width="1.5"/>
+<circle cx="127" cy="375" r="3" fill="none" stroke="#D84315" stroke-width="0.5"/>
+<circle cx="135" cy="375" r="3" fill="none" stroke="#D84315" stroke-width="0.5"/>
+<circle cx="127" cy="383" r="3" fill="none" stroke="#D84315" stroke-width="0.5"/>
+<circle cx="135" cy="383" r="3" fill="none" stroke="#D84315" stroke-width="0.5"/>
+<text x="127" y="403" font-size="8" fill="#D84315" text-anchor="middle">ESTUFA</text>
+
+<!-- Mesada/Bacha (lado izquierdo) -->
+<rect x="100" y="410" width="105" height="60" fill="none" stroke="#FF6F00" stroke-width="1" stroke-dasharray="2,2"/>
+<rect x="100" y="410" width="50" height="25" fill="none" stroke="#1976D2" stroke-width="1"/>
+<text x="127" y="453" font-size="8" fill="#FF6F00" text-anchor="middle">MESADA</text>
+
+<!-- Despensa/Alacena (arriba mesada) -->
+<rect x="100" y="475" width="105" height="35" fill="none" stroke="#D84315" stroke-width="1" stroke-dasharray="2,2"/>
+<text x="152" y="497" font-size="8" fill="#D84315" text-anchor="middle">ALACENA</text>
 
 <!-- ══ ETIQUETAS DE AMBIENTES ══ -->
 <text x="176" y="215" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">DORMITORIO</text>
@@ -70,12 +98,14 @@
 
 <text x="407" y="340" font-size="11" fill="#888" text-anchor="middle">BALCÓN / TERRAZA</text>
 
-<text x="307" y="460" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">ESTAR</text>
-<text x="307" y="478" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">COMEDOR</text>
-<text x="307" y="500" font-size="10" fill="#666" text-anchor="middle">7.35m fondo</text>
+<!-- Etiqueta COCINA -->
+<text x="152" y="337" font-size="12" font-weight="bold" fill="#D84315" text-anchor="middle">COCINA</text>
+<text x="152" y="352" font-size="9" fill="#D84315" text-anchor="middle">1.50m × 1.50m</text>
 
-<text x="175" y="435" font-size="12" font-weight="bold" fill="#D84315" text-anchor="middle">COCINA</text>
-<text x="175" y="452" font-size="9" fill="#D84315" text-anchor="middle">(a proyectar)</text>
+<!-- Etiqueta ESTAR COMEDOR -->
+<text x="360" y="460" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">ESTAR</text>
+<text x="360" y="478" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">COMEDOR</text>
+<text x="360" y="500" font-size="10" fill="#666" text-anchor="middle">5.85m ancho × 7.35m fondo</text>
 
 <!-- ══ COTAS DIMENSIONALES ══ -->
 <!-- Cotas horizontales (superiores) -->
@@ -102,6 +132,17 @@
 <line x1="815" y1="50" x2="815" y2="60" stroke="#111" stroke-width="1"/>
 <text x="457" y="45" font-size="10" font-weight="bold" fill="#111" text-anchor="middle">TOTAL: 10.21m</text>
 
+<!-- Cotas cocina -->
+<line x1="100" y1="325" x2="205" y2="325" stroke="#FF6F00" stroke-width="0.5"/>
+<line x1="100" y1="320" x2="100" y2="330" stroke="#FF6F00" stroke-width="0.5"/>
+<line x1="205" y1="320" x2="205" y2="330" stroke="#FF6F00" stroke-width="0.5"/>
+<text x="152" y="318" font-size="8" fill="#FF6F00" text-anchor="middle">1.50m</text>
+
+<line x1="65" y1="360" x2="65" y2="510" stroke="#FF6F00" stroke-width="0.5"/>
+<line x1="60" y1="360" x2="70" y2="360" stroke="#FF6F00" stroke-width="0.5"/>
+<line x1="60" y1="510" x2="70" y2="510" stroke="#FF6F00" stroke-width="0.5"/>
+<text x="50" y="437" font-size="8" fill="#FF6F00" text-anchor="middle">1.50m</text>
+
 <!-- Cotas verticales (derechas) -->
 <line x1="835" y1="100" x2="835" y2="310" stroke="#666" stroke-width="0.5"/>
 <line x1="830" y1="100" x2="840" y2="100" stroke="#666" stroke-width="0.5"/>
@@ -118,9 +159,10 @@
 <line x1="855" y1="620" x2="865" y2="620" stroke="#111" stroke-width="1"/>
 <text x="875" y="365" font-size="10" font-weight="bold" fill="#111" text-anchor="start">TOTAL: 10.35m</text>
 
-<!-- ══ NOTA DE COCINA ══ -->
-<rect x="100" y="640" width="400" height="50" fill="#FFF3E0" stroke="#FF6F00" stroke-width="1" stroke-dasharray="2,2"/>
-<text x="110" y="658" font-size="11" font-weight="bold" fill="#D84315">Zona de COCINA a desarrollar:</text>
-<text x="110" y="673" font-size="10" fill="#333">Integrada en ESTAR COMEDOR, lado izquierdo (100-150m ancho aprox.)</text>
+<!-- ══ LEYENDA ══ -->
+<rect x="100" y="640" width="715" height="60" fill="#FFF8E1" stroke="#FF6F00" stroke-width="1"/>
+<text x="115" y="658" font-size="11" font-weight="bold" fill="#D84315">ZONA DE COCINA — 1.50m × 1.50m:</text>
+<text x="115" y="673" font-size="9" fill="#333">• Estufa a gas 4 hornallas | • Heladera | • Mesada con bacha | • Alacena aérea</text>
+<text x="115" y="688" font-size="9" fill="#333">• Barra abierta hacia ESTAR COMEDOR | • Acceso directo a PASILLO y BALCÓN</text>
 
 </svg>
